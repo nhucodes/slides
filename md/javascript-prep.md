@@ -4,7 +4,7 @@
 -
 
 ## Download a picture of a cute puppy
-<img src="http://images4.fanpop.com/image/photos/14700000/So-cute-puppies-14749028-800-600.jpg" width=500px>
+<img src="https://images.phillypublishing.com/onwardstate/uploads/2013/04/puppy3.jpg" width=500px>
 
 -
 
