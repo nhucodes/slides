@@ -11,7 +11,7 @@
 
 HTML is the code for creating web pages.
 
-<img src="img/youtube.jpg">
+<img src="/slides/img/youtube.jpg">
 
 * Stands for `Hyper Text Markup Language`
 
@@ -36,7 +36,6 @@ HTML is the code for creating web pages.
 ```
 
 -
--
 
 ## HTML document
 A text file of web page content wrapped in HTML tags.
@@ -58,7 +57,7 @@ A text file of web page content wrapped in HTML tags.
 
 ## HTML Element
 
-<img src="img/html-element.png" />
+<img src="/slides/img/html-element.png" />
 
 * Tag Name/Type
 * Opening Tag
@@ -72,10 +71,10 @@ A text file of web page content wrapped in HTML tags.
 Some elements do not have content, so they are self closing.
 
 ```html
-<img src="img/code.jpg" />
+<img src="/slides/img/code.jpg" />
 ```
 
-<img src="img/code.jpg">
+<img src="/slides/img/code.jpg">
 
 -
 
@@ -83,7 +82,7 @@ Some elements do not have content, so they are self closing.
 
 Provides additional information about the HTML element
 
-<img src="img/html-attribute.png" />
+<img src="/slides/img/html-attribute.png" />
 
 `class` is the attribute name
 
@@ -189,10 +188,10 @@ By default, they are bullet points.
 
 ## Images - Inline
 
-<img src="img/code.jpg" width=100px />
+<img src="/slides/img/code.jpg" width=100px />
 
 ```html
-<img src="img/code.jpg" width=100px />
+<img src="/slides/img/code.jpg" width=100px />
 ```
 
 * ``src`` - location of the image file
@@ -261,7 +260,7 @@ When you need to wrap elements and can't think of a better tag.
 <div class="shopping-cart">
   <h2>Shopping cart</h2>
       <p><a href="">Cashmere sweater</a>: $99.95.</p>
-      <img src="img/cash.png" alt="Cashmere sweater">
+      <img src="/slides/img/cash.png" alt="Cashmere sweater">
   <p>Total cost: $237.89</p>
 </div>
 ```
@@ -315,7 +314,7 @@ header p {
 
 ## What is a CSS rule?
 
-<img src="img/cssrule.png">
+<img src="/slides/img/cssrule.png">
 
 -
 -
