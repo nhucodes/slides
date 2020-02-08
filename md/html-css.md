@@ -11,16 +11,9 @@
 
 HTML is the code for creating web pages.
 
-<img src="img/airbnb-clean.png">
-
--
-
-## What is HTML?
+<img src="img/youtube.jpg">
 
 * Stands for `Hyper Text Markup Language`
-* A markup language
-    * defines the **structure** and **semantics** of webpage content through a series of elements.
-* **Not** a programming language
 
 -
 ## Example of HTML
@@ -34,22 +27,13 @@ HTML is the code for creating web pages.
 ```
 
 ```
-<h3>To do list</li>
+<h3>Favorite ice cream</li>
 <ul>
-  <li>Go to </li>
-  <li>Laundry</li>
-  <li>Mop</li>
-  <li>Pay bills</li>
+  <li>Rocky road </li>
+  <li>chocolate</li>
+  <li>Strawberry</li>
 </ul>
 ```
-
--
-
-## History of HTML
-
-- Invented by Tim Berners-Lee in early 1990
-- Created "hypertext" to share scientific papers
-- Standardized by W3 Consortium
 
 -
 -
@@ -88,13 +72,12 @@ A text file of web page content wrapped in HTML tags.
 Some elements do not have content, so they are self closing.
 
 ```html
-<img src="images/zcw-logo.png" alt="Zip Code Wilmington">
+<img src="img/code.jpg" />
 ```
 
-<img src="img/Logo.jpg" alt="Zip Code Wilmington">
+<img src="img/code.jpg">
 
 -
-
 
 ## HTML Attribute
 
@@ -129,152 +112,22 @@ Mind your opening and closing tags.
 
 Correct
 ```html
-<p>My cat is <strong>very</strong> grumpy.</p>
+<ul>
+  <li>Rocky road </li>
+  <li>chocolate</li>
+  <li>Strawberry</li>
+</ul>
 ```
 
 Incorrect
 ```html
-<!--  Incorrect. It closes p even though strong is the inside element -->
-<p>My cat is <strong>very grumpy.</p></strong>
+<ul>
+  <li>Rocky road </li>
+  <li>chocolate</li>
+  <li>Strawberry
+  </ul>
+</li>
 ```
-
--
-
-
-## Anatomy of an HTML Document
-
-HTML elements aren't very useful on their own. We combine them to form an entire HTML page.
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>My test page</title>
-  </head>
-  <body>
-    <img src="images/firefox-icon.png" alt="My test image">
-  </body>
-</html>
-```
-
--
-
-## Anatomy of an HTML document
-First line of an HTML document is the version.
-
-HTML5
-
-```html
-<!DOCTYPE html>
-```
-
-HTML 4
-
-```html
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-```
-
--
-
-## Anatomy of an HTML document
-
-### `<html>`
-
-After DOCTYPE, is the root element `HTML`.
-
-Everything else will go inside the `HTML` tag.
-
-```html
-<!DOCTYPE html>
-<html>
-
-</html>
-```
-
--
-## Anatomy of an HTML document
-
-### `<head>`
-
-The head contains the title of the page & meta information about the page. Meta information is not visible to the user, but has many purposes, like providing information to search engines.
-
--
-## Anatomy of an HTML document
-
-### `<head>`
-
-* ``<title>My test page</title>`` Sets the title of your page, which is the title that appears in the browser tab.
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>My test page</title>
-  </head>
-</html>
-```
--
-## Anatomy of an HTML document
-
-### `<head>`
-
-* ``<meta charset="utf-8">`` — this element sets the character set your document should use to UTF-8, which includes most characters from the vast majority of human written languages.
-
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>My test page</title>
-  </head>
-</html>
-```
--
-
-## Anatomy of an HTML document
-### `<body>`
-
-Contains all the content that you want to show to the users (e.g. text, images, videos).
-
-```html
-<html>
-  <body>
-    <p>This is my fox. It is mine.</p>
-    <img src="images/firefox-icon.png" alt="My test image">
-  </body>
-</html>
-```
-
--
-
-# DEMO
-- basic page
-- view source code
-- view Google source code
-
--
--
-
-## Block vs Inline Element
-
-HTML elements are categorized as either block-level or inline-level elements.
-
--
-
-## Block Level Elements
-A block-level element occupies the entire space of its parent element (container).
-
-<img src="img/block.png" width=500px />
-
--
-
-## Inline Level Elements
-An inline element occupies enough space for the content (unless specify otherwise).
-
-<img src="img/inline.png" />
 
 -
 -
@@ -333,42 +186,16 @@ By default, they are bullet points.
 </ul>
 
 -
-## Lists - Block Level
-
-Ordered list is used to described a list with an order.
-
-By default, they are numbered items.
-
-```
-<h3>Table of content</h3>
-<ol>
-  <li>headers</li>
-  <li>paragraph</li>
-  <li>lists</li>
-  <li>image</li>
-</ol>
-```
-
-<ol>
-  <li>headers</li>
-  <li>paragraph</li>
-  <li>lists</li>
-  <li>image</li>
-</ol>
-
--
 
 ## Images - Inline
 
-<img src="img/Logo.jpg" alt="Zip Code Wilmington" title="ZCW" width=100px />
+<img src="img/code.jpg" width=100px />
 
 ```html
-<img src="images/zcw-logo.png" alt="Zip Code Wilmington" title="ZCW" />
+<img src="img/code.jpg" width=100px />
 ```
 
-* ``src`` - path to the location of the image file
-* ``alt`` - description of the photo intended for when the file cannot be found, or for use by users with visual impairments
-* ``title`` - description of the photo that will appear as a tooltip when the image is hovered over
+* ``src`` - location of the image file
 
 -
 
@@ -377,96 +204,12 @@ By default, they are numbered items.
 A is for `anchor`
 
 ```html
-<!-- link to an absolute path -->
-<a href="http://zipcodewilmington.com">Zip Code Wilmington</a>
-
-<!-- link to a relative path -->
-<a href="/apply">Apply Now</a>
-
-<!-- link to an absolute path with an image as the content -->
-<a href="http://zipcodewilmington.com">
-    <img src="images/zcw-logo.png" alt="Zip Code Wilmington" title="Zip Code Wilmington" />
-</a>
+<a href="http://youtube.com">Youtube</a>
 ```
 
 ``href`` - short for hyperlink reference.
 
-<a href="http://zipcodewilmington.com" target="_blank">Zip Code Wilmington</a>
-
--
-
-## Relative vs. Absolute paths
-- ### Relative
-  - Relative paths change depending upon the page the link is on.
-  - Links within the same directory need no path information. "filename.jpg"
-  - Subdirectories are listed without preceding slashes. "img/filename.jpg"
-  - Root stars with `/`
-
--
-## Relative vs. Absolute paths
-- ### Absolute
-  - Absolute paths refer to a specific location of a file, including the domain
-  - e.g. `http://yahoo.com/logo.jpg`
-  - Link that is not within your own domain
-
--
-
-## Forms - Block
-
-Used to send information to a server
-
-- create account
-- send tweet
-
-```html
-<form>
-    <label for="username"></label>
-    <input id="username" type="text" />
-    <br>
-    <label for="password"></label>
-    <input id="password" type="text" />
-</form>
-```
-
--
-
-## Input - Inline
-
-The most common type of form control is ``<input>``. These generally go inside a form.
-
-#### Input types:
-
-* [Text](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/text) - ``<input type="text"/>``
-* [Checkbox](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox) - ``<input type="checkbox"/>``
-* [Radio](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio) - ``<input type="radio"/>``
-* [Password](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/password) - ``<input type="password"/>``
-* [Email](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email) - ``<input type="email"/>``
-* [Button](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/button) - ``<input type="button"/>`` could also substitute ``<button>``
-* [Submit](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/submit) -  ``<input type="submit"/>``
-
--
-
-## Textarea - Inline
-
-Input for large text
-
-```
-<textarea rows="10" cols="100"></textarea>
-```
-
-<label for="biography">Biography</label>
-<textarea rows="10" cols="100">
-Now, this is a story all about how
-My life got flipped-turned upside down
-And I'd like to take a minute
-Just sit right there
-I'll tell you how I became the prince of a town called Bel Air
-
-I begged and pleaded with her day after day
-But she packed my suit case and sent me on my way
-She gave me a kiss and then she gave me my ticket.
-I put my Walkman on and said, 'I might as well kick it'.
-</textarea>
+<a href="http://youtube.com">Youtube</a>
 
 -
 ## Line/Ruler
@@ -489,162 +232,6 @@ a<br>b
 
 -
 
-## Space
-HTML ignores white space and new  line in the document.
-
-### Space
-
-```
-&nbsp;
-```
-a&nbsp;&nbsp;&nbsp;&nbsp;b
-
--
-
-## Tables
-
-
-Tables are made up of rows and columns.
-
-<table>
-  <thead>
-    <th>ID</th>
-    <th>Name</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>Leon</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Dolio</td>
-    </tr>
-  </tbody>
-</table>
-
--
-
-## Tables
-
-
-Tables are made up of rows and columns.
-
-```html
-<table>
-  <thead>
-    <th>ID</th>
-    <th>Name</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>Leon</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Dolio</td>
-    </tr>
-  </tbody>
-</table>
-```
-
--
-
-## Comments
-
-```
-<!-- Comment goes here -->
-```
-
--
--
-
-## History of HTML
-- HyperText Markup Language
-- Early 90s
-- HTML 4 in 1997
-- XHTML in 2000
-- HTML 5 in 2014
-
--
-
-## HTML5 Components
-
-* `<header>` - top content (e.g. title, logo, or navigation)
-* `<nav>` - navigation
-* `<main>` - content
-* `<footer` - bottom content (e.g. contact info, copyright, sub navigation)
-
--
-
-## Basic HTML5 Document
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-
-    <title>My page title</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="style.css">
-  </head>
-
-  <body>
-    <!-- Here is our main header that is used across all the pages of our website -->
-    <header>
-      <h1>Hello world!</h1>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Our team</a></li>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <!-- Here is our page's main content -->
-    <main>
-      <!-- It contains an article -->
-      <h2>Article heading</h2>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Donec a diam lectus. Set sit amet ipsum mauris. Maecenas congue ligula as quam viverra nec consectetur ant hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur.</p>
-
-      <h3>subsection</h3>
-
-      <p>Donec ut librero sed accu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.</p>
-
-      <h3>Another subsection</h3>
-
-      <p>Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum soclis natoque penatibus et manis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.</p>
-
-      <!-- the aside content can also be nested within the main content -->
-      <aside>
-        <h2>Related</h2>
-
-        <ul>
-          <li><a href="#">Oh I do like to be beside the seaside</a></li>
-          <li><a href="#">Oh I do like to be beside the sea</a></li>
-          <li><a href="#">Although in the North of England</a></li>
-          <li><a href="#">It never stops raining</a></li>
-          <li><a href="#">Oh well...</a></li>
-        </ul>
-      </aside>
-    </main>
-
-    <!-- And here is our main footer that is used across all the pages of our website -->
-    <footer>
-      <p>©Copyright 2050 by nobody. All rights reversed.</p>
-    </footer>
-  </body>
-</html>
-```
-
--
--
-
 ## Span - Inline
 
 When you need to add inline style and you can't think of a better tag, use span.
@@ -654,6 +241,15 @@ When you need to add inline style and you can't think of a better tag, use span.
 ```
 
 <p>this is <span style="color:red">red</span></p>
+
+-
+
+## HTML5 Components
+
+* `<header>` - top content (e.g. title, logo, or navigation)
+* `<nav>` - navigation
+* `<main>` - content
+* `<footer` - bottom content (e.g. contact info, copyright, sub navigation)
 
 -
 
@@ -694,7 +290,6 @@ When you need to wrap elements and can't think of a better tag.
 
 * HTML - content
 * CSS - presentation
-* Javascript - interaction
 
 -
 ## What is CSS?
