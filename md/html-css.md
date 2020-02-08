@@ -89,13 +89,10 @@ Provides additional information about the HTML element
 
 You can place HTML elements inside other elements.
 
-Mind your opening and closing tags.
-
 Correct
 ```html
 <ul>
   <li>Rocky road </li>
-  <li>chocolate</li>
   <li>Strawberry</li>
 </ul>
 ```
@@ -104,7 +101,6 @@ Incorrect
 ```html
 <ul>
   <li>Rocky road </li>
-  <li>chocolate</li>
   <li>Strawberry
   </ul>
 </li>
@@ -191,12 +187,11 @@ By default, they are bullet points.
 <img src="/slides/img/code.jpg" width=100px />
 
 ```html
-<img src="/slides/img/code.jpg" width=100px />
+<img src="/slides/img/code.jpg" width=300px />
 ```
 
 * ``src`` - location of the image file
-
-Get an image from the internet
+* Demo get an image from the internet
 -
 
 ## Links - Inline
@@ -207,9 +202,9 @@ A is for `anchor`
 <a href="http://youtube.com">Youtube</a>
 ```
 
-``href`` - short for hyperlink reference.
+* ``href`` - short for hyperlink reference.
 
-<a href="http://youtube.com">Youtube</a>
+* <a href="http://youtube.com">Youtube</a>
 
 -
 ## Line/Ruler
@@ -266,17 +261,6 @@ When you need to wrap elements and can't think of a better tag.
 </div>
 ```
 -
--
-
-## HTML Resources
-- [MDN HTML API](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
-- [Khan academy](https://www.khanacademy.org/computing/computer-programming/html-css)
-- [Common Tags](http://www.washington.edu/accesscomputing/webd2/student/unit2/common_tags.html)
-- [FreeCodeCamp](https://www.freecodecamp.org)
-- [HTML & CSS Book](http://htmlandcssbook.com/code-samples/chapter-01/)
-
--
--
 
 <img src="http://2.bp.blogspot.com/_UjJgEwVlPQs/Sxg-OdZMD0I/AAAAAAAADlg/gkTWJLBTaOM/s1600/Golden_Retriever_Puppies.jpg" width="800px">
 
@@ -288,8 +272,8 @@ When you need to wrap elements and can't think of a better tag.
 
 ## Anatomy of a website
 
-* HTML - content
-* CSS - presentation
+* HTML - content (what it has)
+* CSS - presentation (how it looks)
 
 -
 ## What is CSS?
@@ -338,47 +322,21 @@ img {
 Selects all image elements.
 
 -
-## Selector: Position
+## Selector: Class
+
+```html
+<h1 class="main-title">My website</h1>
+<h1>Lisa's website</h1>
+```
+
+Select the class name with a `.`
 
 ```
-p em {
-  color: yellow;
+.main-title {
+  background-color: blue;
 }
 ```
 
-Selects all `em` elements that are within a paragraph
-
-```
-<p>This is <em>important.</em></p>
-```
-
-<p>This is <em style="color:yellow">important.</em></p>
-
--
-## Selector: Position
-- Position selectors are more specific
-- They look for elements inside other elements
-- We separate nested elements with a space
-- Position selectors will override general selector
-
-```
-header ul {
-  <!-- text in header ul is red (except if it's a link) -->
-  color: red;
-}
-
-ul {
-   <!-- all text in a list is green (except header list) -->
-  color: green;
-}
-
-ul li a{
-  <!-- link text is purple -->
-  color: purple;
-}
-```
-
--
 -
 
 ## CSS Color Values
@@ -401,14 +359,6 @@ Hexadecimal (most common)
 ```
 p {
   color: #ff0000;
-}
-```
-
-RGB values
-
-```
-p {
-  color: rgb(255, 0, 0);
 }
 ```
 
@@ -440,13 +390,6 @@ p {
 }
 ```
 
-```
-p {
-  <!-- set everything in one line -->
-  background: #81D8D4 url('img/castle.jpg') fixed repeat-y;
-}
-```
-
 <p style="background-color:#81D8D4">this is a paragraph with background</p>
 
 [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/background)
@@ -470,23 +413,6 @@ p {
   font: bold italic 16px "Arial", sans-serif;
 }
 ```
--
-
-## Font-size
-The font-size property specifies the size of the font.
-
-```
-p {
-  <!-- Pixels -->
-  font-size: 12px;
-
-  <!-- em - 150% more than the inherited size  -->
-  font-size: 1.5em;
-
-  <!-- percent - 150% more than the inherited size -->
-  font-size: 150%;
-}
-```
 
 [W3 school](https://www.w3schools.com/cssref/tryit.asp?filename=trycss_font)
 -
@@ -505,15 +431,39 @@ p {
 [W3 school](https://www.w3schools.com/cssref/pr_pos_vertical-align.asp)
 
 -
-## List
+
+## Size
 
 ```
-ul {
-  list-style: square url("sqpurple.gif");
+p {
+  width: 50%;
+  height: 300px;
+}
+```
+
+-
+
+## Border
+
+```
+p {
+  border: solid 1px #00ff00;
 }
 
 ```
--
+
+```
+p {
+  border-top: solid 1px #0f0;
+  border-bottom: solid 1px #f00;
+  border-left: solid 1px #00f;
+  border-right: solid 1px #000;
+}
+
+```
+
+<p style="border: solid 1px #00ff00;">Border</p>
+
 -
 
 ## Spacing
@@ -559,421 +509,6 @@ p {
   padding: 10px;
 }
 ```
-
--
-
-## Border
-
-```
-p {
-  border: solid 1px #00ff00;
-}
-
-```
-
-```
-p {
-  border-top: solid 1px #0f0;
-  border-bottom: solid 1px #f00;
-  border-left: solid 1px #00f;
-  border-right: solid 1px #000;
-}
-
-```
-
-<p style="border: solid 1px #00ff00;">Border</p>
-
--
-
-## Margin
-
-```
-p {
-  margin: solid 1px #00ff00;
-}
-
-```
-
-```
-p {
-  margin-top: solid 1px #0f0;
-  margin-bottom: solid 1px #f00;
-  margin-left: solid 1px #00f;
-  margin-right: solid 1px #000;
-}
-
-```
--
-## Spacing
-
-<img src="https://pressupinc.com/wp-content/uploads/2014/01/box-model.png">
-
--
--
-## Position
-
-```
-p {
-  position: fixed;
-  top: 40px;
-  right: 100px;
-}
-```
-
-- fixed - starts from the top left document
-- relative - relative to other documents
-
-[MDN Position](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
--
-
-## Size
-
-```
-p {
-  width: 50%;
-  height: 300px;
-}
-```
-
--
--
-
-## CSS selectors : Tag
-
-You can select elements by their html tag name.
-
-```CSS
-/* Targets the <h1> element */
-h1 {
-    color: pink;
-    font-size: 22px;
-}
-
-/* Targets the <header> element */
-header {
-    height: 160px;
-    background-color: blue;
-}
-```
--
-
-## Multi Selectors
-
-Applies a single CSS rule set to multiple selectors. Each selector is separated by a comma.
-
-```CSS
-h1,
-h2,
-h3,
-h4 {
-    color: pink;
-    font-size: 22px;
-}
-```
-
--
-
-## Descendant Selector
-
-Specifically targets any h1 that is a descendant (or nested within) a header
-
-```CSS
-header h1 {
-    font-size: 60px;
-}
-
-h1 {
-    font-size: 32px;
-}
-```
-
--
-
-## Child Selector
-
-Specifically targets direct child of tag `p` of type `<a>`
-
-```CSS
-p > a {
-  color: red;
-}
-```
-
-- [Google](http://google.com)
-
-<p>this is a paragraph with link to <a href="http://yahoo.com" style="color:red">Yahoo</a><p>
-
-
--
-
-## Sibling Selector
-
-Specifically targets any h1 that is a descendant (or nested within) a header
-
-```CSS
-li+li {
-  color: red;
-}
-```
-
-<ul>
-  <li>Chapter 1</li>
-  <li style="color:red">Chapter 2</li>
-  <li style="color:red">Chapter 3</li>
-</ul>
-
--
-## Id selector
-
-```
-<p id="bio">This is bio</p>
-<p>nothing to see here</p>
-```
-
-```
-#bio {
-  color:red;
-}
-```
-
-<p style="color:red">This is bio</p>
-<p>nothing to see here</p>
-
-
--
-
-## Class selector
-
-```
-<button class="primary">Submit</button>
-<button>Next</button>
-```
-
-```
-.primary {
-  color:red;
-}
-```
-
-<button style="color:red; font-size:30px">Submit</button>
-<button style="font-size:30px">Next</button>
-
--
-
-## Class child selector
-
-```
-.bio .header {
-    font-size: 60px;
-}
-
-```
-
-```
-<h2 class="header">Bio</h2>
-
-<div class="bio">
-  <!--  this header font size is 60px -->
-  <h2 class="header">Early years</h2>
-
-</div>
-```
--
-
-## Attribute selector
-
-```html
-<label for="username">Username</label>
-<input id="username" type="text" />
-<br>
-<label for="icecream">Love ice-cream?</label>
-<input id="icecream" type="checkbox" />
-
-```
-
-Select by attribute
-
-```
-[type="checkbox"] {
- font-size:40px;
-}
-```
-
-Select by tag with a given attribute
-
-```
-input[type="checkbox"] {
- font-size:40px;
-}
-```
-
--
--
-
-## Inherit
-
-Children inherit attributes from their parents
-
-```
-body {
-  font: "Arial";
-}
-
-header {
-  font: "Times"
-}
-```
-
--
-## Inherit Property
-
-```
-/* Make second-level headers green */
-h2 { color: green; }
-
-/* header in sidebar will inherit from the parent class */
-#sidebar h2 { color: inherit; }
-```
-
--
-
-## Inherit
-
-- All browser have some type of defaults
-- Designer usually `normalize` (reset) all the elements so left 10px means left 10px everywhere
-
--
--
-## Cascading
-Styles "cascade" down until changed
-
-```
-p{
-  color:blue;
-  font-family: 'Helvetica';
-}
-.red {
-  color: red;
-}
-#special {
-  font-family: Arial;
-}
-```
-
-```
-<p>Paragraph</p>
-<p class ="red">Paragraph</p>
-<p class = "red" id ="special">Paragraph</p>
-```
-
--
-
-## Cascading priority
-Your browser assigns different priorities to CSS depending on the type of selector.
-
-1. Important! - Most Important
-2. In line CSS
-3. ID
-4. Class
-5. Element - Least Important
-
--
-
-## Cascading priority
-Your browser also assigns priority based on the specificity of the selection. More specific selectors have higher priority.
-
-```
-.main .sale .clearance p{ //Most specific
-  color: red;
-}
-.header .title p{
-  color: green;
-}
-.footer p{ //Least specific
-  color: blue;
-}
-```
-
--
--
-
-## Connecting CSS to HTML
-- "External"
-- "Inline"
-- "Embedded"
-
--
-
-## External
-
-Preferred style
-
-style.css
-
-```CSS
-h1 {
-  color: pink;
-}
-```
-
-index.html
-
-```html
-<html>
-  <head>
-    <link rel="stylesheet" href="/style.css">
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-  </body>
-</html>
-```
-
--
-
-## Inline
-
-```
-<p style="color:red">Some text.</p>
-```
-
-Applies to specific element
-
-Can't be reused
-
-DON'T DO IT!
-
-(unless you really really have to)
-
--
-## Embedded
-```
-<head>
-  <style type="text/css">
-    p {
-      color: red;
-      font-size: 12px;
-    }
-  </style>
-</head>
-```
-
-Inside <head> of the HTML document.
-
-Uses `<style>` tag.
-
-Can only be used in one HTML file
--
--
-
-## Demo
-- view CSS property of an element in the browser
-- modify property
-
--
-## Resources
- - [MDN CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
- - [W3schools CSS](https://www.w3schools.com/cssref/default.asp)
 
 -
 <img src="http://cdn7.whiskeyriff.com/wp-content/uploads/cutest-puppy-ever-1384460985_org.jpg">
