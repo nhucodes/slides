@@ -1,8 +1,4 @@
-# Intro to HTML & CSS
--
--
-
-## HTML
+# HTML
 
 -
 -
@@ -184,7 +180,7 @@ By default, they are bullet points.
 
 ## Images - Inline
 
-<img src="/slides/img/code.jpg" width=100px />
+<img src="/slides/img/code.jpg" width=300px />
 
 ```html
 <img src="/slides/img/code.jpg" width=300px />
@@ -343,11 +339,13 @@ Select the class name with a `.`
 
 Your browser can accept colors in many different ways:
 
-- Hexadecimal value (ex. #FF0000)
+- Hexadecimal value (ex. #FF0000) (most common)
 - RGB value (ex. rgb(255, 0, 0))
 - HSL value (ex. hsl(0, 100%, 100%))
 - Color name (ex. red)
   - The 17 standard colors are: aqua, black, blue, fuchsia, gray, grey, green, lime, maroon, navy, olive, purple, red, silver, teal, white, and yellow.
+
+<a href="https://www.color-hex.com/">Color Hex</a>
 
 -
 ## Color
