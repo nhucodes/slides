@@ -37,24 +37,6 @@ HTML is the code for creating web pages.
 
 -
 
-## HTML document
-A text file of web page content wrapped in HTML tags.
-
-```
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>My test page</title>
-  </head>
-  <body>
-    <img src="images/firefox-icon.png" alt="My test image">
-  </body>
-</html>
-
-```
--
-
 ## HTML Element
 
 <img src="/slides/img/html-element.png" />
@@ -126,6 +108,24 @@ Incorrect
   <li>Strawberry
   </ul>
 </li>
+```
+-
+
+## HTML document
+A text file of web page content wrapped in HTML tags.
+
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+  </head>
+  <body>
+    <img src="images/firefox-icon.png" alt="My test image">
+  </body>
+</html>
+
 ```
 
 -
