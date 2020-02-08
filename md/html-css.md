@@ -345,7 +345,7 @@ Your browser can accept colors in many different ways:
 - Color name (ex. red)
   - The 17 standard colors are: aqua, black, blue, fuchsia, gray, grey, green, lime, maroon, navy, olive, purple, red, silver, teal, white, and yellow.
 
-<a href="https://www.color-hex.com/">Color Hex</a>
+
 
 -
 ## Color
@@ -367,6 +367,8 @@ p {
   color: red;
 }
 ```
+
+<a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_color_text">w3schools color</a>
 
 -
 
@@ -390,7 +392,7 @@ p {
 
 <p style="background-color:#81D8D4">this is a paragraph with background</p>
 
-[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/background)
+[MDN](https://www.w3schools.com/css/tryit.asp?filename=trycss_background-color_body)
 
 -
 
@@ -439,6 +441,7 @@ p {
 }
 ```
 
+[W3 school](https://www.w3schools.com/css/tryit.asp?filename=trycss_dim_height_width2)
 -
 
 ## Border
@@ -462,6 +465,7 @@ p {
 
 <p style="border: solid 1px #00ff00;">Border</p>
 
+[W3 School](https://www.w3schools.com/css/tryit.asp?filename=trycss_border-width)
 -
 
 ## Spacing
@@ -508,5 +512,6 @@ p {
 }
 ```
 
+[W3 school](https://www.w3schools.com/css/tryit.asp?filename=trycss_padding_sides)
 -
 <img src="http://cdn7.whiskeyriff.com/wp-content/uploads/cutest-puppy-ever-1384460985_org.jpg">
