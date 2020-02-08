@@ -196,6 +196,7 @@ By default, they are bullet points.
 
 * ``src`` - location of the image file
 
+Get an image from the internet
 -
 
 ## Links - Inline
