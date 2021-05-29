@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Javascript - </title>
+
+		<meta name="description" content="">
+		<meta name="author" content="Nhu Nguyen">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/league.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-markdown>
+          <textarea data-template>
+            ## Javascript
+            ### Comments
+            ### Variables
+            ### Data types
+            ---
+            ## Comments
+
+            ```javascript
+            // short comments
+            console.log('Hello World!'); // inline short comments
+
+            /*
+            You can make long comments
+            with multiple lines here
+            */
+            ```
+            ---
+            ## Comments
+            Is this valid?
+
+            ```javascript
+            // You can make long comments
+            // with multiple lines here
+            ```
+            <p class="fragment">Yes</p>
+            ---
+
+            ## Comments
+
+            Is this valid?
+
+            ```javascript
+            console.log('Hello World!'); /* inline comments */
+
+            ```
+
+            <p class="fragment">Yes</p>
+
+            ---
+            ### What is 10/5?
+
+              <p class="fragment">2</p>
+              <p class="fragment">Oct 5th</p>
+              <p class="fragment">10/5</p>
+              <p class="fragment">It depends on the data type.</p>
+            ---
+            ## Data types
+            - Boolean (true, false)
+            - Number (10, 3.14)
+            - String ("June")
+            - Symbol ()
+            - Object
+
+
+          </textarea>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/search/search.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>
