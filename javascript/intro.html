@@ -14,12 +14,13 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/league.css" id="theme">
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/league.css" id="theme">
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="../dist/override.css">
 	</head>
 	<body>
 		<div class="reveal">
@@ -29,9 +30,28 @@
 				<section data-markdown>
           <textarea data-template>
             ## Javascript
-            ### Comments
-            ### Variables
-            ### Data types
+            ### - console.log
+            ### - Comments
+
+            ---
+            ## What is Javascript?
+
+            <p class="fragment">JavaScript is a programming language that allows you to implement complex features on web pages.</p>
+            <p class="fragment">- Update content (e.g. infinite scrolling)</p>
+            <p class="fragment">- Interact with users (e.g. click a button to display extra infomation)</p>
+            ---
+            ## What make up a webpage?
+            - HTML - content
+            - CSS - look
+            - Javascript - interaction
+
+            ---
+            ## console.log
+
+            ```javascript
+              console.log('Hello, World!');
+            ```
+
             ---
             ## Comments
 
@@ -40,8 +60,8 @@
             console.log('Hello World!'); // inline short comments
 
             /*
-            You can make long comments
-            with multiple lines here
+            Multilines comments
+            This is another line
             */
             ```
             ---
@@ -53,34 +73,15 @@
             // with multiple lines here
             ```
             <p class="fragment">Yes</p>
+
             ---
-
             ## Comments
-
             Is this valid?
 
             ```javascript
             console.log('Hello World!'); /* inline comments */
-
             ```
-
             <p class="fragment">Yes</p>
-
-            ---
-            ### What is 10/5?
-
-              <p class="fragment">2</p>
-              <p class="fragment">Oct 5th</p>
-              <p class="fragment">10/5</p>
-              <p class="fragment">It depends on the data type.</p>
-            ---
-            ## Data types
-            - Boolean (true, false)
-            - Number (10, 3.14)
-            - String ("June")
-            - Symbol ()
-            - Object
-
 
           </textarea>
 				</section>
@@ -88,12 +89,12 @@
 
 		</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/zoom/zoom.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/search/search.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/zoom/zoom.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/search/search.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
 		<script>
 
 			// Also available as an ES module, see:

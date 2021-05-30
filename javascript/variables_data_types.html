@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Javascript - Variables & Data Types</title>
+
+		<meta name="description" content="">
+		<meta name="author" content="Nhu Nguyen">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/league.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="../css/override.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-markdown>
+          <textarea data-template>
+            ## Javascript
+            ### - Variable
+            ### - Data types
+
+            ---
+            # Variable
+
+            ---
+            ## What is a variable?
+
+            <p class="fragment">A variable is a named value.</p>
+
+            ```javascript
+              const pi = 3.14;
+              const day = "Monday";
+            ```
+
+            ---
+            ## Why do we use a variable?
+
+            <p class="fragment">To update a value</p>
+            <p class="fragment">To reuse code</p>
+
+            ```javascript
+            // If want to change the value
+            // we only need to change it in one place
+            const x = 3;
+            const square = x * x;
+
+            const cube = x * x * x;
+            const cube2 = square * x;
+            ```
+
+            ---
+            ## Why do we use a variable?
+
+            - To update a value
+            - To reuse code
+
+            ```javascript
+            let day = 'Saturday';
+
+            console.log('Today is ' + day); // Today is Saturday
+            console.log(day + ' is the best!'); // Saturday is the best!
+            console.log('I love ' + day); // I love Saturday
+            ```
+            ---
+            ## Declaring a variable
+
+            Create a variable pi with the value 3.14.
+
+            ```javascript
+            // use const (constant) for a value that does not change
+            const pi = 3.14;
+
+            // use let for a value that changes
+            let pi = 3.14;
+
+            // old way of declaring a variable
+            // avoid this if possible
+            var pi = 3.14;
+            ```
+
+            Use `const` by default if possible.
+
+            ---
+            ## Delcaring a variable
+
+            - Create a variable day
+            ```javascript
+            const day = "Monday";
+            ```
+
+            - Save the result to a variable
+            ```javascript
+            const square = 3 * 3;
+            ```
+
+            - Assign/Set it to a variable
+            ```javascript
+            const actor = "Will Smith";
+            ```
+
+            ---
+            ## Initializing a variable
+
+            A variable is initialize when a value is assigned.
+
+            ```javascript
+            // declare a variable
+            let color;
+            // initialize the variable
+            color = "green"
+
+            //initialize the variable
+            let number = 9;
+            ```
+
+            ---
+            Remember, the `=` sign means to assign.
+
+            It does not mean `equal`.
+
+            ```javascript
+            // let city be "Philly"
+            let city = "Philly";
+
+            let month = 5;
+            // this means set the month to 6
+            month = 6;
+            ```
+
+            ---
+            ## Variable update
+
+            ```javascript
+            let i = 0; // i is 0
+            i = i + 1; // i is 1
+            i = i + 3; // i is 4
+
+            let day = "Monday";
+            day = true;
+            day = 10;
+
+            ```
+
+            What is day?
+
+            <p class="fragment">
+              10 - the last assignment
+            </p>
+
+            ---
+            ## Variable name
+            - camelCase (capitialize the first word)
+              - todayIsMonday
+            - use letters (a-z, A-Z), number, and underscore
+            - start with a letter
+            - variable name is case sensitive
+              - `myName` is not the same as `myname`
+            - avoid keyword
+              - e.g. `const`, `let`, `for`, `function`, `class`, `var`, `typeof`
+
+            ---
+            ## Variable good practices (opinions)
+
+            - Prefer `const` over `let` when possible
+            - Be descriptive (avoid using one letter variable)
+            - Declare it to where you first use it
+            - Assign it where you declare it when possible
+
+            ---
+            ## Variable good practice
+
+            Assign it where you declare it if possible
+            ```javascript
+              // don't do this
+              const city;
+              city = "Philly";
+
+              // do this
+              const city = "Philly";
+            ```
+
+            ---
+            # Break!
+
+            <img width="300px" src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80">
+
+            ---
+            # Data types
+
+            ---
+            ### What is 10/5?
+
+              <p class="fragment">2</p>
+              <p class="fragment">Oct 5th</p>
+              <p class="fragment">10/5</p>
+              <p class="fragment">It depends on the data type.</p>
+            ---
+            ## Data types
+            #### Primitive/base types
+            - Boolean (true, false)
+            - Number (10, 3.14)
+            - String ("June")
+            - undefined
+            - Symbol
+            - BigInt (number bigger than 2^53 - 1)
+            <p></p>
+
+            #### Structural type
+            - Object
+
+            ---
+            ## Boolean
+
+            Boolean has only two values, `true` and `false`.
+
+            ```javascript
+            const fridayIsTheBest = true;
+
+            const mondayIsTheBest = false;
+            ```
+
+            ---
+            ## Number
+
+            Number can be an integer or a decimal.
+
+            ```javascript
+            const negativeNumber = -3;
+
+            const positiveNumber = 21;
+
+            const decimal = 3.14;
+            ```
+
+            ---
+            ## Number
+
+            Don't use comma for big number. Use `_`.
+            ```javascript
+            const thousands = 34000;
+
+            const million = 1_000_000;
+            ```
+
+            ---
+            ## Number - NaN
+
+            NaN - not a number
+
+            ```javascript
+            // parsing letters
+            Number("aa"); // NaN
+
+            Math.sqrt(-1); // NaN
+            ```
+
+            ---
+            ## String
+
+            String is actual text value.
+
+            There are three ways to create a string.
+
+            ```javascript
+            const month1 = 'January'; // single quote
+
+            const month2 = "February"; // double quote
+
+            const month3 = `March`; // back tick
+
+            const letter = "a"; // single character
+            ```
+
+            ---
+            ## String concatenation
+
+            Combine multiple strings together.
+
+            ```javascript
+            const day = "Thursday"
+
+            const phrase1 = "Today is " + day + ".";
+
+            // Use ` when you want to insert the value inside the string
+            const phrase2 = `Today is ${day}.`;
+            ```
+
+            ---
+            ## String vs Number
+
+            Is "5" the same as 5?
+
+            <p class="fragment">
+              No. But it's a trick question.
+            </p>
+            <p class="fragment">
+              What is 1 + 1?
+              <br />
+              What is "1" + "1"?
+            </p>
+
+            ---
+            ## String vs Number
+
+            - What is 1 + 1?
+            - What is "1" + "1"?
+
+            <p class="fragment">
+              1 + 1 is 2
+              <br />
+              "1" + "1" is "11"
+            </p>
+
+            ---
+            ## typeof
+
+            Use `typeof` to find out the datatype
+
+            ```javascript
+            const month = 9;
+            console.log(typeof month); // "number"
+
+            const month2 = "9"
+            const monthType = typeof month2
+            console.log(monthType); // "string"
+            ```
+
+            ---
+            ## Type conversion
+
+            ```javascript
+            //change a string to a number
+            Number("4")
+
+            // change a number to a string
+            String(4)
+            ```
+
+            ---
+            ## undefined
+
+            `undefined` means it was never assign a value.
+
+            ```javascript
+            // never use the = sign
+            let favoriteThings;
+
+            console.log(favoriteThings); // undefined
+            console.log(typeof undefined); //undefined
+            ```
+
+            ---
+            ## null
+
+            `null` is a no value
+
+            ```javascript
+            // setting the fruit variable to no value
+            let fruit = null;
+
+            ```
+
+            ---
+            ## String - null vs empty string
+
+            - Empty string `""` is a string with no character.
+            - null is no value
+
+            ```javascript
+            // can call string method on an empty string
+            "".length; // 0
+
+            // cannot call any method on a null value
+            null.length; // error
+            ```
+
+            ---
+            ## Arithmetic Operators
+
+            ```javascript
+            const a = 7;
+            const b = 2;
+            ```
+
+            <table style="font-size: 30px">
+              <thead>
+                <tr>
+                  <th>Example</th>
+                  <th>Example Result</th>
+                  <th>Name</th>
+                  <th>Result</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>-a</code></td>
+                  <td>-7</td>
+                  <td> Negation</td>
+                  <td>Opposite of <code>a</code>.</td>
+                </tr>
+                <tr>
+                  <td><code>a + b</code></td>
+                  <td>9</td>
+                  <td>Addition</td>
+                  <td>Sum of <code>a</code> and <code>b</code>.</td>
+                </tr>
+                <tr>
+                  <td><code>a - b</code></td>
+                  <td>5</td>
+                  <td>Subtraction</td>
+                  <td>Difference of <code>a</code> and <code>b</code>.</td>
+                </tr>
+                <tr>
+                  <td><code>a * b</code></td>
+                  <td>14</td>
+                  <td>Multiplication</td>
+                  <td>Product of <code>a</code> and <code>b</code>.</td>
+                </tr>
+                <tr>
+                  <td><code>a / b</code></td>
+                  <td>3.5</td>
+                  <td>Division</td>
+                  <td>Quotient of <code>a</code> and <code>b</code>.</td>
+                </tr>
+                <tr>
+                  <td><code>a % b</code></td>
+                  <td>1</td>
+                  <td>Modulus</td>
+                  <td>Remainder of <code>a</code> divided by <code>b</code>.</td>
+                </tr>
+              </tbody>
+            </table>
+
+
+            ---
+            ## The % operator
+
+            The remainder of `a` divided by `b`
+
+            ```javascript
+            3 % 2 // returns 1 because the remainder of 3/2 is 1
+            ```
+
+            <p class="fragment">What is <code>11 % 3</code>?</p>
+            <p class="fragment">2</p>
+            <p class="fragment">Is the number is even?</p>
+
+            ---
+            ## The % operator
+
+            To check if the number is even, ` % 2`
+
+            and check if the result is `0`
+
+            ```javascript
+            // is number even?
+            3 % 2 === 0 // false because the remainder is 1
+            4 % 2 === 0 // true because the remainder is 0
+            ```
+
+            <p class="fragment">How do I check if the number is odd?</p>
+
+            ---
+            ## The % operator
+
+            To check if the number is even, ` % 2`
+
+            and check if the result is `1`
+
+            ```javascript
+            // is number odd?
+            3 % 2 === 1 // true because the remainder is 1
+            4 % 2 === 1 // false because the remainder is 0
+            ```
+
+            ---
+            ## Comparison `==` vs `===`
+
+            What's the result?
+
+            ```javascript
+            "2" == 2
+
+            "2" === 2
+            ```
+
+            <p class="fragment">
+              true
+            </p>
+
+            ---
+            ## Comparison `==` vs `===`
+
+            - `==` loosely compares the value.
+            - `===` compares the value and type of data
+              - use this by default
+
+            ```javascript
+            // compare numbers
+            3 === 3
+            3 % 2 === 1
+
+            // compare string
+            "3" === "3"
+
+            // compare Boolean
+            true === false
+
+
+            ```
+
+
+            ---
+            ## The += operator
+
+            We can easily add a number to itself using the `+=` operator
+            ```javascript
+            let sum = 0;
+            sum = sum + 2;
+            console.log(sum) // sum is equal to 2
+            ```
+
+            ```javascript
+            let sum = 0;
+            sum += 2;
+            console.log(sum) // sum is equal to 2
+            ```
+
+            ---
+            ## Order of operations
+
+            JavaScript follows the same precedence rules for its arithmetic operators that mathematics does.
+
+            - P = parentheses
+            - E = exponentiation
+            - M = multiplication
+            - D = division
+            - A = addition
+            - S = subtraction
+
+            Always add parantheses to be safe.
+
+            ---
+            ## readline-sync
+
+            `readline-sync` is a library.
+
+            A library is code other people write
+
+            that you can add to your program.
+
+            ```javascript
+            const input = require('readline-sync');
+            const name = input.question("Enter your name: ");
+            console.log("Hello, " + name);
+            ```
+            ---
+            ## Resources
+            - [Codecademy](https://www.codecademy.com/learn/introduction-to-javascript)
+            - [MDN - Mozilla](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps)
+            - [Null vs Undefined](https://codeburst.io/javascript-null-vs-undefined-20f955215a2)
+          </textarea>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/zoom/zoom.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/search/search.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>
