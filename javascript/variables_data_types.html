@@ -51,10 +51,9 @@
             ## Why do we use a variable?
 
             <p class="fragment">To update a value</p>
-            <p class="fragment">To reuse code</p>
 
             ```javascript
-            // If want to change the value
+            // If we want to change the value
             // we only need to change it in one place
             const x = 3;
             const square = x * x;
@@ -66,11 +65,10 @@
             ---
             ## Why do we use a variable?
 
-            - To update a value
             - To reuse code
 
             ```javascript
-            let day = 'Saturday';
+            const day = 'Saturday';
 
             console.log('Today is ' + day); // Today is Saturday
             console.log(day + ' is the best!'); // Saturday is the best!
@@ -86,6 +84,7 @@
             const pi = 3.14;
 
             // use let for a value that changes
+            // let pi be 3.14
             let pi = 3.14;
 
             // old way of declaring a variable
@@ -116,7 +115,7 @@
             ---
             ## Initializing a variable
 
-            A variable is initialize when a value is assigned.
+            A variable is initialize when a value is assigned to it.
 
             ```javascript
             // declare a variable
@@ -124,7 +123,7 @@
             // initialize the variable
             color = "green"
 
-            //initialize the variable
+            //declare and initialize the variable
             let number = 9;
             ```
 
@@ -137,9 +136,7 @@
             // let city be "Philly"
             let city = "Philly";
 
-            let month = 5;
-            // this means set the month to 6
-            month = 6;
+            let month = 6;
             ```
 
             ---
@@ -178,8 +175,8 @@
 
             - Prefer `const` over `let` when possible
             - Be descriptive (avoid using one letter variable)
-            - Declare it to where you first use it
-            - Assign it where you declare it when possible
+            - Declare it close to where you use it
+            - Assign it when you delcare it when possible
 
             ---
             ## Variable good practice
@@ -289,7 +286,7 @@
             ---
             ## String concatenation
 
-            Combine multiple strings together.
+            Combining multiple strings together
 
             ```javascript
             const day = "Thursday"
@@ -297,8 +294,23 @@
             const phrase1 = "Today is " + day + ".";
 
             // Use ` when you want to insert the value inside the string
+            // Use ${variable_name} inside the `
             const phrase2 = `Today is ${day}.`;
             ```
+
+            ---
+            ## String vs Number
+
+            - What is 1 + 1?
+            - What is "1" + "1"?
+
+            <p class="fragment">
+              <code>
+                1 + 1 is 2
+                <br />
+                "1" + "1" is "11"
+              </code>
+            </p>
 
             ---
             ## String vs Number
@@ -308,22 +320,13 @@
             <p class="fragment">
               No. But it's a trick question.
             </p>
-            <p class="fragment">
-              What is 1 + 1?
-              <br />
-              What is "1" + "1"?
-            </p>
-
-            ---
-            ## String vs Number
-
-            - What is 1 + 1?
-            - What is "1" + "1"?
 
             <p class="fragment">
-              1 + 1 is 2
-              <br />
-              "1" + "1" is "11"
+              <code>
+                "5" == 5 // true
+                <br />
+                "5" === 5 // false
+              </code>
             </p>
 
             ---
@@ -361,18 +364,17 @@
             let favoriteThings;
 
             console.log(favoriteThings); // undefined
-            console.log(typeof undefined); //undefined
+            console.log(typeof favoriteThings); //undefined
             ```
 
             ---
             ## null
 
-            `null` is a no value
+            `null` is a nothing
 
             ```javascript
             // setting the fruit variable to no value
             let fruit = null;
-
             ```
 
             ---
@@ -458,7 +460,7 @@
 
             <p class="fragment">What is <code>11 % 3</code>?</p>
             <p class="fragment">2</p>
-            <p class="fragment">Is the number is even?</p>
+            <p class="fragment">Is the number even?</p>
 
             ---
             ## The % operator
@@ -468,40 +470,25 @@
             and check if the result is `0`
 
             ```javascript
-            // is number even?
+            // is the number even?
             3 % 2 === 0 // false because the remainder is 1
             4 % 2 === 0 // true because the remainder is 0
             ```
 
-            <p class="fragment">How do I check if the number is odd?</p>
+            <p class="fragment">Is the number odd?</p>
 
             ---
             ## The % operator
 
-            To check if the number is even, ` % 2`
+            To check if the number is odd, ` % 2`
 
             and check if the result is `1`
 
             ```javascript
-            // is number odd?
+            // is the number odd?
             3 % 2 === 1 // true because the remainder is 1
             4 % 2 === 1 // false because the remainder is 0
             ```
-
-            ---
-            ## Comparison `==` vs `===`
-
-            What's the result?
-
-            ```javascript
-            "2" == 2
-
-            "2" === 2
-            ```
-
-            <p class="fragment">
-              true
-            </p>
 
             ---
             ## Comparison `==` vs `===`
@@ -521,26 +508,59 @@
             // compare Boolean
             true === false
 
-
             ```
 
 
             ---
             ## The += operator
 
-            We can easily add a number to itself using the `+=` operator
+            We can add a number to itself using the `+=` operator
             ```javascript
-            let sum = 0;
+            let sum = 3;
             sum = sum + 2;
-            console.log(sum) // sum is equal to 2
+            console.log(sum) // sum is equal to 5
             ```
 
             ```javascript
-            let sum = 0;
+            let sum = 3;
             sum += 2;
-            console.log(sum) // sum is equal to 2
+            console.log(sum) // sum is equal to 5
             ```
 
+            ---
+            ## The ++ operator
+
+            `++` means to add 1 to the variable
+
+            ```javascript
+            let i = 0;
+            i = i + 1; // i is 1
+            i = i + 1; // i is 2
+            ```
+
+            ```javascript
+            let i = 0;
+            i++; // i is 1
+            i++; // i is 2
+            ```
+
+            ---
+
+            ## The -- operator
+
+            `--` means to minus 1 to the variable
+
+            ```javascript
+            let i = 5;
+            i = i - 1; // i is 4
+            i = i - 1; // i is 3
+            ```
+
+            ```javascript
+            let i = 5;
+            i--; // i is 4
+            i--; // i is 3
+            ```
             ---
             ## Order of operations
 
@@ -560,17 +580,24 @@
 
             `readline-sync` is a library.
 
-            A library is code other people write
-
-            that you can add to your program.
+            A library is code other people wrote
 
             ```javascript
             const input = require('readline-sync');
             const name = input.question("Enter your name: ");
             console.log("Hello, " + name);
             ```
+
+            What is the typeof name?
+            <p class="fragment">
+              String
+            </p>
             ---
             ## Resources
+
+            <img width="300px" src="https://images.unsplash.com/photo-1496843916299-590492c751f4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80">
+            <p></p>
+
             - [Codecademy](https://www.codecademy.com/learn/introduction-to-javascript)
             - [MDN - Mozilla](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps)
             - [Null vs Undefined](https://codeburst.io/javascript-null-vs-undefined-20f955215a2)
