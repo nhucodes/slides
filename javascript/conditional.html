@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Javascript - Conditionals If/Else</title>
+
+		<meta name="description" content="">
+		<meta name="author" content="Nhu Nguyen">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/league.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="../dist/override.css">
+	</head>
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-markdown>
+          <textarea data-template>
+            ## Javascript
+            ### - Conditionals
+
+            ---
+            ## Boolean Values
+
+            - true
+            - false
+
+
+            ---
+            ## Boolean Conversion - Number
+
+            Anything that is not 0 is true.
+
+            ```javascript
+            // number
+            Boolean(0); // false
+            Boolean(1); // true
+            Boolean(143); // true
+            Boolean(-1); // true
+
+            ---
+            ## Boolean Conversion - String
+
+            Anything that is not `""` an empty string is true.
+
+            ```javascript
+            console.log(Boolean('')); // false
+            console.log(Boolean('true')); // true
+            console.log(Boolean('false')); // true
+            console.log(Boolean('FALSE')); // true
+            console.log(Boolean('FALSE')); // true
+            ```
+
+            ---
+            ## Boolean Expressions
+
+            A code statement that evaluate to true or false.
+
+            ```javascript
+            5 === 5; // true
+            5 === 6; // false
+
+            'a' === 'a'; // true
+            'a' === 'b'; // false
+            ```
+
+
+            ---
+            ## Boolean Operators
+
+            <table style="font-size: 30px">
+              <thead>
+                <tr>
+                  <th>Operator</th>
+                  <th>Example</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>===</code></td>
+                  <td>4 === 4</td>
+                  <td>4 === 5</td>
+                  <td>Strict equal comparison. It compares the value and type.</td>
+                </tr>
+                <tr>
+                  <td><code>==</code></td>
+                  <td>4 == 4</td>
+                  <td>Soft equal comparison. It compares the value.</td>
+                </tr>
+                <tr>
+                  <td>!==</td>
+                  <td>4 !== 5</td>
+                  <td>Subtraction</td>
+                  <td>Difference of <code>a</code> and <code>b</code>.</td>
+                </tr>
+                <tr>
+                  <td><code>a * b</code></td>
+                  <td>14</td>
+                  <td>Multiplication</td>
+                  <td>Product of <code>a</code> and <code>b</code>.</td>
+                </tr>
+                <tr>
+                  <td><code>a / b</code></td>
+                  <td>3.5</td>
+                  <td>Division</td>
+                  <td>Quotient of <code>a</code> and <code>b</code>.</td>
+                </tr>
+                <tr>
+                  <td><code>a % b</code></td>
+                  <td>1</td>
+                  <td>Modulus</td>
+                  <td>Remainder of <code>a</code> divided by <code>b</code>.</td>
+                </tr>
+              </tbody>
+            </table>
+
+
+          </textarea>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/zoom/zoom.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/search/search.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>

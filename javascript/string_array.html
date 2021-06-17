@@ -31,272 +31,45 @@
 				<section data-markdown>
           <textarea data-template>
             ## Javascript
-            ### - Variable
-            ### - Data types
+            ### - String
+            ### - Array
 
             ---
-            # Variable
-
-            ---
-            ## What is a variable?
-
-            <p class="fragment">A variable is a named value.</p>
-
-            ```javascript
-              const pi = 3.14;
-              const day = "Monday";
-            ```
-
-            ---
-            ## Why do we use a variable?
-
-            <p class="fragment">To update a value</p>
-            <p class="fragment">To reuse code</p>
-
-            ```javascript
-            // If want to change the value
-            // we only need to change it in one place
-            const x = 3;
-            const square = x * x;
-
-            const cube = x * x * x;
-            const cube2 = square * x;
-            ```
-
-            ---
-            ## Why do we use a variable?
-
-            - To update a value
-            - To reuse code
-
-            ```javascript
-            let day = 'Saturday';
-
-            console.log('Today is ' + day); // Today is Saturday
-            console.log(day + ' is the best!'); // Saturday is the best!
-            console.log('I love ' + day); // I love Saturday
-            ```
-            ---
-            ## Declaring a variable
-
-            Create a variable pi with the value 3.14.
-
-            ```javascript
-            // use const (constant) for a value that does not change
-            const pi = 3.14;
-
-            // use let for a value that changes
-            let pi = 3.14;
-
-            // old way of declaring a variable
-            // avoid this if possible
-            var pi = 3.14;
-            ```
-
-            Use `const` by default if possible.
-
-            ---
-            ## Delcaring a variable
-
-            - Create a variable day
-            ```javascript
-            const day = "Monday";
-            ```
-
-            - Save the result to a variable
-            ```javascript
-            const square = 3 * 3;
-            ```
-
-            - Assign/Set it to a variable
-            ```javascript
-            const actor = "Will Smith";
-            ```
-
-            ---
-            ## Initializing a variable
-
-            A variable is initialize when a value is assigned.
-
-            ```javascript
-            // declare a variable
-            let color;
-            // initialize the variable
-            color = "green"
-
-            //initialize the variable
-            let number = 9;
-            ```
-
-            ---
-            Remember, the `=` sign means to assign.
-
-            It does not mean `equal`.
-
-            ```javascript
-            // let city be "Philly"
-            let city = "Philly";
-
-            let month = 5;
-            // this means set the month to 6
-            month = 6;
-            ```
-
-            ---
-            ## Variable update
-
-            ```javascript
-            let i = 0; // i is 0
-            i = i + 1; // i is 1
-            i = i + 3; // i is 4
-
-            let day = "Monday";
-            day = true;
-            day = 10;
-
-            ```
-
-            What is day?
+            ## What is a string?
 
             <p class="fragment">
-              10 - the last assignment
+              A string is a collection of characters.
             </p>
-
-            ---
-            ## Variable name
-            - camelCase (capitialize the first word)
-              - todayIsMonday
-            - use letters (a-z, A-Z), number, and underscore
-            - start with a letter
-            - variable name is case sensitive
-              - `myName` is not the same as `myname`
-            - avoid keyword
-              - e.g. `const`, `let`, `for`, `function`, `class`, `var`, `typeof`
-
-            ---
-            ## Variable good practices (opinions)
-
-            - Prefer `const` over `let` when possible
-            - Be descriptive (avoid using one letter variable)
-            - Declare it to where you first use it
-            - Assign it where you declare it when possible
-
-            ---
-            ## Variable good practice
-
-            Assign it where you declare it if possible
-            ```javascript
-              // don't do this
-              const city;
-              city = "Philly";
-
-              // do this
-              const city = "Philly";
-            ```
-
-            ---
-            # Break!
-
-            <img width="300px" src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80">
-
-            ---
-            # Data types
-
-            ---
-            ### What is 10/5?
-
-              <p class="fragment">2</p>
-              <p class="fragment">Oct 5th</p>
-              <p class="fragment">10/5</p>
-              <p class="fragment">It depends on the data type.</p>
-            ---
-            ## Data types
-            #### Primitive/base types
-            - Boolean (true, false)
-            - Number (10, 3.14)
-            - String ("June")
-            - undefined
-            - Symbol
-            - BigInt (number bigger than 2^53 - 1)
-            <p></p>
-
-            #### Structural type
-            - Object
-
-            ---
-            ## Boolean
-
-            Boolean has only two values, `true` and `false`.
-
-            ```javascript
-            const fridayIsTheBest = true;
-
-            const mondayIsTheBest = false;
-            ```
-
-            ---
-            ## Number
-
-            Number can be an integer or a decimal.
-
-            ```javascript
-            const negativeNumber = -3;
-
-            const positiveNumber = 21;
-
-            const decimal = 3.14;
-            ```
-
-            ---
-            ## Number
-
-            Don't use comma for big number. Use `_`.
-            ```javascript
-            const thousands = 34000;
-
-            const million = 1_000_000;
-            ```
-
-            ---
-            ## Number - NaN
-
-            NaN - not a number
-
-            ```javascript
-            // parsing letters
-            Number("aa"); // NaN
-
-            Math.sqrt(-1); // NaN
-            ```
 
             ---
             ## String
 
-            String is actual text value.
-
-            There are three ways to create a string.
+            Creating a string
 
             ```javascript
             const month1 = 'January'; // single quote
 
             const month2 = "February"; // double quote
 
-            const month3 = `March`; // back tick
+            const month3 = `March`; // back tick (only in the latest JS)
 
-            const letter = "a"; // single character
+            const letter = "a"; // single character is still a string
+            const empty = ""; // no character but is still a string
             ```
             ---
             ## Strings
-            Because JavaScript uses quotes to begin and end strings, if you want to use quotes in a string, you need to *escape* it with `\`.
+            Using quotes inside a string
 
             ```javascript
-            let sentence = 'Domi\'s shop is the best!';
-            ```
-            <br>
-            Or you can use a different quote.
+            // Use " for string when you need '
+            "Don't eat that!";
 
-            ```javascript
-            let sentence = "Domi's shop is the best!";
+            // Use ' for when you need "
+            'Hey! "Eat your vegetables!"';
+
+            // or use escape character with \
+            'Don\'t eat that!';
+            "Hey! \"Eat your vegetables!\"";
             ```
             ---
             ## String concatenation
@@ -310,63 +83,101 @@
 
             // Use ` when you want to insert the value inside the string
             const phrase2 = `Today is ${day}.`;
+
+            // use the method concat
+            const phrase3 = "Today is ".concat(day); // Today is Thursday
             ```
 
             ---
-            ## String vs Number
+            ## String - wrapping
 
-            Is "5" the same as 5?
+            Wrap a string with `\`
 
+            ```javascript
+            let longString = "This is a very long string which needs \
+            to wrap across multiple lines because \
+            otherwise my code is unreadable."
+            ```
+            ---
+            ## String
+
+            String can be a primitive or an object.
+
+            Primitive string are any string created using quotes.
+
+            ```javascript
+            const month1 = 'January'; // single quote
+            console.log(month1); // "string"
+
+            const month2 = "February"; // double quote
+            console.log(month2); // "string"
+
+            const month3 = `March`; // back tick (only in the latest JS)
+            console.log(month3); // "string"
+            ```
+
+            ---
+            ## String - Object
+
+            An object is a collection of properties and actions.
+              - properties/fields/data
+              - methods/functions/actions
+
+            ```javascript
+            const month = new String('May');
+            console.log(typeof month); // "object"
+            ```
+
+            - JavaScript converts the string literal in the String object.
+            - Use string literal by default.
+            ---
+            ## String - .length
+
+            `.length` - the number of character in a String
+
+            ```
+            "apple".length; // 5
+            "ice".length; // 3
+            ```
+
+            Is `.length` a property or a method?
             <p class="fragment">
-              No. But it's a trick question.
+              Property. It has no ().
             </p>
 
             ---
-            ## typeof
+            ## String - []
+            ![apple is red](../img/apple.png)
 
-            Use `typeof` to find out the datatype
+            `[]` gets the character of a string
 
             ```javascript
-            const month = 9;
-            console.log(typeof month); // "number"
+            const phrase = "apple is red";
 
-            const month2 = "9"
-            const monthType = typeof month2
-            console.log(monthType); // "string"
+            const firstCharacter = phrase[0]; // "a"
+
+            const lastCharacter1 = phrase[11]; // "d"
+            const lastCharacter2 = phrase[phrase.length - 1]; // "d"
+
+            const outOfBound = phrase[12]; // undefined
             ```
 
-            ---
-            ## Type conversion
-
-            ```javascript
-            //change a string to a number
-            Number("4")
-
-            // change a number to a string
-            String(4)
-            ```
 
             ---
-            ## undefined
+            ## String - Operations
 
-            `undefined` means it was never assign a value.
-
-            ```javascript
-            // never use the = sign
-            let favoriteThings;
-
-            console.log(favoriteThings); // undefined
-            console.log(typeof undefined); //undefined
-            ```
-
-            ---
-            ## null
-
-            `null` is a no value
+            `.charAt()` - similar to []
 
             ```javascript
-            // setting the fruit variable to no value
-            let fruit = null;
+            const phrase = "apple is red";
+
+            const firstCharacter = phrase.charAt(0); // "a"
+
+            const lastCharacter1 = phrase.charAt(11); // "d"
+            const lastCharacter2 = phrase.charAt(phrase.length - 1); // "d"
+
+            const outOfBound = phrase.charAt(12); // ""
+            const outOfBound2 = phrase.charAt(-1); // ""
 
             ```
 
@@ -379,30 +190,37 @@
 
             "apple".includes("le"); // true
             "apple".includes("orange"); //false
-
-            "apple".replace("p", "b"); // "abple"
-            "apple".replaceAll("p", "b"); // "abble"
-
-            "Apple".toLowerCase(); // "apple"
-            "apple".toUpperCase(); // "APPLE"
-
-            "    apple    ".trim(); // "apple"
-            "    apple    ".trimStart(); // "apple    "
-            "    apple    ".trimEnd(); // "    apple"
             ```
 
             [String Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 
             ---
             ## String operations
+
+            ```javascript
+            "apple".replace("p", "b"); // "abple"
+            "apple".replaceAll("p", "b"); // "abble"
+
+            "Apple".toLowerCase(); // "apple"
+            "apple".toUpperCase(); // "APPLE"
+            ```
+            [String Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+
+            ---
+            ## String operations
+
+            ```javascript
+            "    apple    ".trim(); // "apple"
+            "    apple    ".trimStart(); // "apple    "
+            "    apple    ".trimEnd(); // "    apple"
+            ```
+
+            [String Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+            ---
+            ## String operations
             ![apple is red](../img/apple.png)
             ```javascript
-            // Note length does not require parenthesis
-            "apple is red".length; // 12
-
-            "apple is red".charAt(4); // "e"
-
-            "apple is red".endsWith("le"); // true
+            "apple is red".endsWith("red"); // true
             "apple is red".startsWith("is"); // false
 
             "apple is red".split(" "); // ["apple", "is", "red"]
@@ -422,15 +240,25 @@
             "apple is red".slice(6, 8); // "is"
             "apple is red".substring(6); // "is red"
             "apple is red".slice(6); // "is red"
+            ```
 
+            [String Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+
+            ---
+            ## String - substring vs slice
+            <img src="../img/apple.png" alt="apple is red" width="400px" />
+
+            ```javascript
             // if the end is less than start,
-            then it changes the start and end
-            "apple is red".substring(9, 1); // "apple is "
+            // then it changes the start and end
+            "apple is red".substring(9, 0); // "apple is "
+
             // slice will return an empty string
-            "apple is red".slice(9, 1); // ""
+            "apple is red".slice(9, 0); // ""
 
             // substring thinks negative number is 0
             "apple is red".substring(9, -1); // "apple is "
+
             //slice thinks it's the last character minus the value
             "apple is red".slice(9, -1); // "re"
             ```
@@ -461,155 +289,125 @@
             fruit.toUpperCase();
             console.log(fruit); // "apple" is unchanged
 
-            // you have to save the value
+            // you have to resave the result
             fruit = fruit.toUpperCase();
             console.log(fruit); // "APPLE"
             ```
+            ---
+            # Demo
+            [Weather test](https://replit.com/@nhucodes/weather-test)
 
             ---
-            ## Break!
+            ## ASCII
+            American Standard Code for Information Interchange
 
-            <img src="https://images.unsplash.com/photo-1612125966334-269ea9cfbfde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=934&q=80" height="500px">
-            ---
-            ## Arithmetic Operators
-
-            ```javascript
-            const a = 7;
-            const b = 2;
-            ```
-
-            <table style="font-size: 30px">
-              <thead>
-                <tr>
-                  <th>Example</th>
-                  <th>Example Result</th>
-                  <th>Name</th>
-                  <th>Result</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><code>-a</code></td>
-                  <td>-7</td>
-                  <td> Negation</td>
-                  <td>Opposite of <code>a</code>.</td>
-                </tr>
-                <tr>
-                  <td><code>a + b</code></td>
-                  <td>9</td>
-                  <td>Addition</td>
-                  <td>Sum of <code>a</code> and <code>b</code>.</td>
-                </tr>
-                <tr>
-                  <td><code>a - b</code></td>
-                  <td>5</td>
-                  <td>Subtraction</td>
-                  <td>Difference of <code>a</code> and <code>b</code>.</td>
-                </tr>
-                <tr>
-                  <td><code>a * b</code></td>
-                  <td>14</td>
-                  <td>Multiplication</td>
-                  <td>Product of <code>a</code> and <code>b</code>.</td>
-                </tr>
-                <tr>
-                  <td><code>a / b</code></td>
-                  <td>3.5</td>
-                  <td>Division</td>
-                  <td>Quotient of <code>a</code> and <code>b</code>.</td>
-                </tr>
-                <tr>
-                  <td><code>a % b</code></td>
-                  <td>1</td>
-                  <td>Modulus</td>
-                  <td>Remainder of <code>a</code> divided by <code>b</code>.</td>
-                </tr>
-              </tbody>
-            </table>
-
-
-            ---
-            ## The % operator
-
-            The remainder of `a` divided by `b`
-
-            ```javascript
-            3 % 2 // returns 1 because the remainder of 3/2 is 1
-            ```
-
-            <p class="fragment">What is <code>11 % 3</code>?</p>
-            <p class="fragment">2</p>
-            <p class="fragment">Is the number is even?</p>
-
-            ---
-            ## The % operator
-
-            To check if the number is even, ` % 2`
-
-            and check if the result is `0`
-
-            ```javascript
-            // is number even?
-            3 % 2 === 0 // false because the remainder is 1
-            4 % 2 === 0 // true because the remainder is 0
-            ```
-
-            <p class="fragment">How do I check if the number is odd?</p>
-
-            ---
-            ## The % operator
-
-            To check if the number is even, ` % 2`
-
-            and check if the result is `1`
-
-            ```javascript
-            // is number odd?
-            3 % 2 === 1 // true because the remainder is 1
-            4 % 2 === 1 // false because the remainder is 0
-            ```
-
-            ---
-            ## Comparison `==` vs `===`
-
-            What's the result?
-
-            ```javascript
-            "2" == 2
-
-            "2" === 2
-            ```
+            Maps 0 and 127 to
+            - English letters
+            - numbers
+            - symbols.
 
             <p class="fragment">
-              true
+              Then they extended to 256 to include more characters/symbols.
+            </p>
+            ---
+            ## Codepoint
+            But what about Russian, Japanese, and Chinese characters?
+
+            ---
+            ## Unicode - UTF
+            Unicode
+
+            143,859 characters covering
+            - 154 modern and historic scripts (ô)
+            - symbols (µ)
+            - emoji (😆)
+            - non-visual control and formatting codes (`\n`)
+            ---
+            ## Unicode
+
+            ```
+            const symbol = "\ud835\udd46"; // 𝕆
+            symbol.length; // 2
+            ```
+            [List of Unicode character](https://en.wikipedia.org/wiki/List_of_Unicode_characters)
+
+            ---
+            # Array
+
+
+            ---
+            ## Array
+
+            Arrays are ordered lists of values.
+
+            ```javascript
+            const weather = ["sunny", "cloudy", "rainy"];
+
+            const primes = [2, 3, 5, 7, 11, 13];
+
+            const booleanValues = [true, false];
+            ```
+
+            Don't mix type unless you absolutely have to.
+
+            ---
+            ## Array - []
+
+            Use `[]` to get the value.
+
+            Array index starts at 0.
+
+            ```javascript
+            const colors = ["blue", "red", "green"];
+
+            colors[0]; // "blue"
+            colors[colors.length];
+
+            ```
+            <p class="fragment">
+              <code>colors[colors.length]</code> is undefined.
+              <br>
+              <code>colors[colors.length - 1]</code> gets the last item.
             </p>
 
             ---
-            ## Comparison `==` vs `===`
+            ## Array - Update
 
-            - `==` loosely compares the value.
-            - `===` compares the value and type of data
-              - use this by default
+            Array is mutable!
 
             ```javascript
-            // compare numbers
-            3 === 3
-            3 % 2 === 1
-
-            // compare string
-            "3" === "3"
-
-            // compare Boolean
-            true === false
-
-
+            const colors = ["blue", "red", "green"];
+            colors[1] = "orange"; // ["blue", "orange", "green"]
             ```
 
             ---
-            ## Resources
-            - [Codecademy](https://www.codecademy.com/learn/introduction-to-javascript)
-            - [MDN - Mozilla](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps)
-            - [Null vs Undefined](https://codeburst.io/javascript-null-vs-undefined-20f955215a2)
+            ## Array - Common methods
+
+            - .includes()
+            - .indexOf()
+            - .join()
+            - .reverse()
+            - .sort()
+            - .push()
+            - .pop()
+
+            [MDN - Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+            ---
+
+            # Demo
+            [Weather test](https://replit.com/@nhucodes/weather-test)
+
+            ---
+            ## Multi-Dimensional Arrays
+
+            ```javascript
+            let shuttleCrews = [
+              ['Robert Gibson', 'Mark Lee', 'Mae Jemison'],
+              ['Kent Rominger', 'Ellen Ochoa', 'Bernard Harris'],
+              ['Eilen Collins', 'Winston Scott',  'Catherin Coleman']
+            ];
+            ```
+
           </textarea>
 				</section>
 			</div>
