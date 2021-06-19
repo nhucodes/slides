@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Javascript - Loops - For & While</title>
+
+		<meta name="description" content="">
+		<meta name="author" content="Nhu Nguyen">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/league.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="../css/override.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-markdown>
+          <textarea data-template>
+            ## Javascript
+            ### - For Loop
+            ### - For of Loop
+            ### - While Loop
+
+            ---
+            # For loop
+
+            ---
+            ## Why do we use loop?
+
+            <p class="fragment">Because we're <del>lazy</del> efficient!</p>
+            <p class="fragment">Don't repeat yourself (DRY)!</p>
+            ---
+            ## For
+
+            ```javascript
+            const colors = ["red", "blue", "green"];
+
+            console.log(colors[0]);
+            console.log(colors[1]);
+            console.log(colors[2]);
+            ```
+            <p class="fragment">
+              BE LAZY! Don't repeat yourself!
+            </p>
+
+            ---
+            ## For
+
+            ```javascript
+            for( /* 3 statements */ ) {
+              // code you want to repeat
+            }
+            ```
+
+            1. Intialize the variable<br />
+            `let i = 0`
+            2. Run the loop if the condition is true<br/>
+            `i < 4`<br>
+            3. Update the value that needs to change<br/>
+            `i = i + 1`
+
+            ---
+            ## For
+
+            ```javascript
+            const colors = ["red", "blue", "green"];
+            // the thing that changes is the index
+            // it changes by 1 every time
+            console.log(colors[0]);
+            console.log(colors[1]);
+            console.log(colors[2]);
+
+            // rewritten as a for loop
+            // 1. Intialize the variable "let i = 0;"
+            // 2. while "i < colors.length"
+            // 3. Update the value "i = i + 1"
+            for(let i = 0; i < colors.length; i = i + 1) {
+              //code to execute
+              console.log(colors[i])
+            }
+
+            ```
+
+
+            ---
+            ## For...of
+
+            ```javascript
+            const colorArray = ["red", "blue", "green"];
+
+            // go through each element in the array
+            for (const color of colorArray) {
+              // code to execute
+              console.log(color);
+            }
+            ```
+
+            1. declare a variable (const color)
+            2. of (keyword)
+            3. array (colorArray)
+
+            ---
+            ## For - Benefits
+
+            - Not repeating myself
+            - Don't need to know the data
+
+            ---
+
+            # DEMO
+            [Exercises](https://replit.com/@nhucodes/ForLoopExercises#index.js)
+
+            ---
+            ## While
+
+            1. Intialize
+            2. condition (run this loop if this is true)
+            3. update value (important!!!!!)
+
+            ```javascript
+            const colors = ["red", "blue", "green"];
+
+            // 1. intialize the variable you want to update
+            let i = 0;
+
+            // 2. run this code while this is true
+            while(i < colors.length) { // stops when this is false
+              // execute the code
+              console.log(colors[i])
+
+              //3. update the value
+              i = i + 1;
+            }
+            ```
+
+            ---
+            # DEMO
+
+            [Exercise](https://replit.com/@nhucodes/WhileLoopExercises)
+
+            ---
+            ## Break - For
+            Use `break` to exit/stop a loop.
+
+
+            ```javascript
+            const fruitArray = ["apple", "orange", "cherry", "rasberry", "watermelon"]
+
+            // find if "orange" is in the array
+            let isInArray = false;
+
+            // for every item in the array
+            for(const fruit of fruitArray) {
+              // check if the value is orange
+              if (fruit === 'orange') {
+                console.log("found it!!!");
+                isInArray = true;
+                break; // stop the loop
+              }
+            }
+            ```
+
+            ---
+            ## Break - while
+            Use `break` to exit/stop a loop.
+
+            ```javascript
+            const fruitArray = ["apple", "orange", "cherry", "rasberry", "watermelon"]
+
+            // find if "orange" is in the array
+            let isInArray = false;
+            let i = 0;
+
+            while(i < fruitArray.length) {
+              if (fruitArray[i] === 'orange') {
+                console.log("found it!!!");
+                isInArray = true;
+                break; // stop the loop
+              }
+              i++; // IMPORTANT!!!!!!
+            }
+            ```
+
+            ---
+            ## For/While (Opinion)
+
+            - Default to `for` loop
+                - avoid infinite loop
+            - Use while if it needs external input
+
+            ---
+            ## While
+
+            Requires user input
+
+            ```javascript
+            const input = require('readline-sync');
+
+            let num = input.question('Please enter a positive number:');
+            num = Number(num);
+
+            while (num <= 0) {
+              num = input.question('Invalid input. Please enter a positive number:');
+              num = Number(num);
+            }
+            ```
+            ---
+            # Studio
+            [Link](https://education.launchcode.org/js-independent-track/chapters/loops/studio.html)
+
+            ---
+            ## Resources
+            - [For](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for)
+            - [For...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
+            - [While](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while)
+          </textarea>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/zoom/zoom.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/search/search.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>
