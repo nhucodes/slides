@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Javascript - Functions</title>
+
+		<meta name="description" content="">
+		<meta name="author" content="Nhu Nguyen">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/league.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="../css/override.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-markdown>
+          <textarea data-template>
+            ## Javascript
+            ### - Functions()
+
+            ---
+            ## What is a function?
+
+            <p class="fragment">
+              A block of code
+            </p>
+
+            ---
+            ## Why do we use functions?
+
+            <p class="fragment">Because we're <del>lazy</del> efficient!</p>
+            <p class="fragment">To make the code readable</p>
+
+
+            ---
+            ## Function
+
+            What does this code do?
+
+            ```javascript
+            const name = "Call to Action";
+            const words = name.split(" ");
+            let result = "";
+
+            for(let i = 0; i < words.length; i++) {
+              result += words[i][0];
+            }
+
+            result.toUpperCase();
+            ```
+
+            ---
+            ## Function
+
+            What does this code do?
+
+            ```javascript
+            function acronym(name) {
+              const words = name.split(" ");
+              let shortName = "";
+
+              for(let i = 0; i < words.length; i++) {
+                shortName += words[i][0];
+              }
+
+              return shortName.toUpperCase();
+            }
+            ```
+
+            Notice how easy it is to read the code<br>
+            when the code have descriptive name.
+
+
+            ---
+            ## Function
+
+            - What does the function do? (name of the function)
+              - it should do one thing
+            - What is the input? (parameters)
+            - What is the output? (return value)
+
+            ---
+            ## Function
+
+            Defining a function
+
+            ```javascript
+            // 1. Keyword function
+            // 2. Name of the function (camel case)
+            // 3. Optional Named inputs (aka parameters)
+            // 4. Code to execute in curly braces
+            // 5. Optional output - return a value
+
+            function nameOfFunction(inputs){
+              // code you want to execute
+              // return result
+            }
+
+            // call/invoke the function with its name and ()
+            nameOfFunction();
+            ```
+
+            ---
+            ## Function - Example
+
+            - No parameter
+            - No return statement
+
+            ```javascript
+            // note the function has no parameters/inputs
+            function displayInstructions() {
+              console.log("Welcome!");
+              console.log("It's time to play a game!");
+
+              // note there is no keyword return
+              // the function doesn't return anything
+              // printing the function call will print undefined
+            }
+
+            // call the function
+            displayInstructions();
+            ```
+
+            ---
+            ## Function - Example
+
+            Parameter and return statement
+
+            ```javascript
+            // function takes two inputs
+            // first input is named quantity
+            // second input is named price
+            function calculateTotal(quantity, price) {
+              const total = quantity * price;
+              const totalWithTax = total + (total * 0.06);
+
+              // to return the result, use the keyword return
+              // and the value you want to return
+              return totalWithTax;
+            }
+
+            const total = calculateTotal(10, 1.25);
+            console.log(total);
+            ```
+
+            ---
+            ## Function - Example
+
+            Function can be one liner.
+
+            ```javascript
+            function calculateTotal(quantity, price) {
+              return (quantity * price) * 1.06;
+            }
+
+            const total = calculateTotal(10, 1.25);
+            console.log(total);
+            ```
+            ---
+            ## Function - return
+
+            `return` will exit the function
+
+            ```javascript
+            function calculateTotal(quantity, price) {
+              return -1;
+
+              const total = quantity * price;
+              return total + (total * 0.06);
+            }
+
+            const total = calculateTotal(10, 1.25);
+            console.log(total);
+            ```
+
+            What is total?
+            <p class="fragment">
+              -1
+            </p>
+
+            ---
+            ## Function - return
+
+            `return` will exit the function
+
+            ```javascript
+            function calculateTotal(quantity, price) {
+              return;
+
+              const total = quantity * price;
+              return total * 1.06;
+            }
+
+            const total = calculateTotal(10, 1.25);
+            console.log(total);
+            ```
+
+            What is total?
+            <p class="fragment">
+              undefined
+            </p>
+            ---
+            ## Function - return
+
+            `return` will exit the loop and the function
+
+            ```javascript
+            function countDown(number) {
+              for(let i = number; i > 0; i--) {
+                console.log(i);
+                return i;
+              }
+            }
+
+            const output = countDown(10);
+            console.log(output);
+            ```
+
+            What is it going to print?
+            <p class="fragment">
+              10 - from the loop<br>
+              10 - for the output
+            </p>
+            ---
+
+            # Demo
+            - Acronym
+
+            ---
+            ## Function - parameters
+
+            ```javascript
+            function greetUser(name) {
+              console.log("Hello, " + name);
+            }
+
+            greetUser("Jane");
+            ```
+
+            Prints `Hello, Jane`
+            ---
+            ## Function - parameters
+
+            ```javascript
+            function greetUser(name) {
+              console.log("Hello, " + name);
+            }
+
+            greetUser();
+            ```
+            What is going to print?
+            <p class="fragment">
+              Hello, undefined
+            </p>
+            ---
+            ## Function - default value
+
+            To set a default value, use `=`
+
+            ```javascript
+            function calculateTotal(quantity, price, tax = 0.06) {
+              const total = quantity * price;
+              return total + (total * tax);
+            }
+
+            // no tax given, will use default value
+            calculateTotal(10, 1.25);
+
+            // use the given tax value
+            calculateTotal(10, 1.25, 0.04);
+            ```
+            ---
+            ## Function - default values
+
+            Multiple default values
+
+            ```javascript
+            // price is default to $1
+            // tax is default to 0.06
+            function calculateTotal(quantity, price = 1, tax = 0.06) {
+              const total = quantity * price;
+              return total + (total * tax);
+            }
+
+            const tax = 0.05;
+            const total = calculateTotal(10, tax);
+            console.log(total);
+            ```
+
+            What is total?
+            <p class="fragment">
+              0.53 - because the second argument is the price
+            </p>
+
+            ---
+            # Scope
+
+            ---
+            ## Scope
+
+            What is "visible"?
+
+            ```javascript
+            function printFruit() {
+              let fruit = "Apple";
+            }
+
+            console.log(fruit);
+            ```
+
+            What is it going to print?
+            <p class="fragment">
+              ReferenceError: fruit is not defined
+            </p>
+
+            ---
+            ## Scope
+
+            ```javascript
+            function printFruit() {
+              let fruit = "Apple";
+              console.log(fruit);
+            }
+            ```
+            What is it going to print?
+            <p class="fragment">
+              Apple
+            </p>
+
+            ---
+            ## Scope
+
+            - Scope is within `{}`
+
+            ```javascript
+            function printFruit() {
+              let fruit = "Apple";
+              // inside the {}
+              console.log(fruit);
+            }
+
+            // outside of the {}, therefore not visible
+            console.log(fruit);
+            ```
+
+            ---
+            ## Scope
+
+            - Scope is within `{}`
+            - Applicable to loops
+
+            ```javascript
+            for(let i = 0; i < 10; i++) {
+              //inside {}
+              console.log(i);
+            }
+
+            // outside of {}
+            console.log(i);
+            ```
+
+            <p class="fragment">
+              Outside {} will gives an error.
+            </p>
+            ---
+            ## Scope
+            - Scope is within `{}`
+            - Applicable to if/else
+
+            ```javascript
+            if (true) {
+              let x = 10;
+              console.log("inside: x is " + x);
+            }
+            // outside of {}
+            console.log("outside: x is " + x);
+            ```
+
+            <p class="fragment">
+              Outside {} will gives an error.
+            </p>
+
+            ---
+            ## Scope
+            - Scope is within `{}`
+            - Applicable to if/else
+
+            ```javascript
+            let x = -1;
+
+            if (true) {
+              x = 10;
+              console.log("inside: x is " + x);
+            }
+
+            console.log("outside: x is " + x);
+            ```
+
+            What is it going to print?
+            <p class="fragment">
+              inside: x is 10 <br>
+              outside: x is 10
+            </p>
+
+            ---
+            ## Scope
+
+            - Scope is within `{}`
+
+            ```javascript
+            let x = 10;
+
+            function printx(){
+              console.log("inside: x is " + x);
+            }
+
+            printx();
+            console.log("outside: x is " + x);
+            ```
+            What is it going to print?
+
+            <p class="fragment">
+              inside: x is 10 <br>
+              outside: x is 10
+            </p>
+
+
+            ---
+            ## Scope
+
+            ```javascript
+            if (1 === 1) {
+              var message = "It's always true!";
+            }
+
+            console.log(message);
+            ```
+            What is it going to print?
+
+            <p class="fragment">
+              It's always true!
+            </p>
+
+
+            ---
+            ## Scope
+
+            - `var` is only function and global scoped
+            - `var` is not block scoped (`for`, `while`, `if`)
+
+
+            ---
+            ## Var vs Let
+
+            ```javascript
+            let fruit = "apple";
+            let fruit = "orange";
+            console.log(fruit);
+            ```
+            What is it going to print?
+            <p class="fragment">
+              SyntaxError: Identifier 'fruit' has already been declared
+            </p>
+
+            ---
+            ## Var vs Let
+
+            ```javascript
+            var fruit = "apple";
+            var fruit = "orange";
+            console.log(fruit);
+            ```
+            What is it going to print?
+            <p class="fragment">
+              Orange
+            </p>
+            ---
+            # Studio
+            [Link](https://education.launchcode.org/js-independent-track/chapters/functions/studio.html)
+
+            ---
+            ## Resources
+            - [Function - Net Ninja](https://www.youtube.com/watch?v=xUI5Tsl2JpY)
+            - [Function - Dev Ed](https://www.youtube.com/watch?v=xjAu2Y2nJ34)
+            - [Function - Mosh](https://www.youtube.com/watch?v=N8ap4k_1QEQ)
+            - [Function - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
+            - [Scope - MDN](https://developer.mozilla.org/en-US/docs/Glossary/Scope)
+            - [Scope - W3Schools] - (https://www.w3schools.com/js/js_scope.asp)
+          </textarea>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/zoom/zoom.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/search/search.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>
