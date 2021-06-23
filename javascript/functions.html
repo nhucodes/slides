@@ -308,6 +308,43 @@
             </p>
 
             ---
+            ## Function - calling other functions
+
+            ```javascript
+            function printCharacter(char, number) {
+              let result = '';
+              for (let i = 0; i < number; i++) {
+                result += char;
+              }
+              return result;
+            }
+
+            function printTriangle(size){
+              for(let i = 1; i <= size; i++) {
+                console.log(printCharacter('*', i))
+              }
+            }
+
+            printTriangle(10);
+            ```
+
+
+            ---
+            ## Functions - tips
+
+            - Make it readable
+            - Function should do one thing
+
+            ```javascript
+            function playTicTacToe() {
+              printIntroductions();
+              printRules();
+              printGameBoard();
+              let userInput = askUserInput();
+              boolean win = checkForWinner(userInput);
+            }
+            ```
+            ---
             # Scope
 
             ---
@@ -462,7 +499,6 @@
 
             - `var` is only function and global scoped
             - `var` is not block scoped (`for`, `while`, `if`)
-
 
             ---
             ## Var vs Let
