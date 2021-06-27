@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Javascript - Functions</title>
+
+		<meta name="description" content="">
+		<meta name="author" content="Nhu Nguyen">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/league.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="../css/override.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-markdown>
+          <textarea data-template>
+            ## Javascript
+            ### - More Functions()
+
+
+            ---
+            ## Function
+
+            Storing a function in a variable
+
+            ```javascript
+            // named function
+            function greet(name) {
+              return "Hello, " + name;
+            }
+
+            // save the function in the variable
+            let greetFunction = greet;
+
+            // call the function from the variable
+            greetFunction("Nemo");
+            ```
+
+            What is greetFunction?
+            <p class="fragment">
+              "function"
+            </p>
+
+            ---
+            ## Function
+            Storing a function in a variable
+
+            ```javascript
+            // note it doesn't have ()
+            const log = console.log
+
+            // invoke the function
+            log("Hello, world!")
+            ```
+
+            What does () do?
+            <p class="fragment">
+              Invoke the function
+            </p>
+
+
+            ---
+            ## Function
+
+            ```javascript
+            function greet(name) {
+              return "Hello, " + name;
+            }
+
+            let greetFunction = greet();
+            ```
+
+            What is greetFunction?
+            <p class="fragment">
+              "Hello, undefined"
+            </p>
+            ---
+            ## Anonymous function
+
+            ```javascript
+            // no name
+            function(name) {
+              return "Hello, " + name;
+            }
+            ```
+
+            How do I call it?
+
+            ---
+            ## Anonymous function
+
+            ```javascript
+            // store it in a variable
+            const greet = function(name) {
+              return "Hello, " + name;
+            }
+
+            // invoke the function
+            greet("Nemo");
+            ```
+
+            ---
+            ## Anonymous function
+
+            - used once
+            - pass it into other functions
+
+            ---
+            ## Anonymous function
+
+            `array.map` takes a function with one params.
+
+            It applies the function to each item in the array.
+
+            ```javascript
+            const numbers = [1, 2, 3, 5];
+
+            const square = function(x) {
+              return x * x;
+            }
+
+            const result = numbers.map(square);
+            ```
+
+            ---
+            ## Anonymous function - inline
+
+            ```javascript
+            const numbers = [1, 2, 3, 5];
+
+            // don't need this, only here for referrence
+            const square = function(x) {
+              return x * x;
+            }
+
+            // inline the function
+            const result = numbers.map(function(x) {
+              return x * x;
+            });
+            ```
+
+            ---
+            ## Arrow function
+
+            In es6, you can use arrow functions (`=>`).
+
+            ```javascript
+            const numbers = [1, 2, 3, 5];
+
+            // const square = function(x) {
+            //   return x * x;
+            // }
+
+            // arrow function with {} need a return statement
+            numbers.map((x) => {
+              return x * x
+            });
+
+            // same function
+            // arrow function without {} does not need a return statement
+            numbers.map((x) => x * x);
+
+            ```
+
+            ---
+            ## Function as parameter
+
+            ```javascript
+            function print(number, func) {
+              const result = func(number);
+              console.log(result);
+            }
+
+            print(3, x => x * x);
+            print(3, x => x * 2);
+            ```
+
+            ---
+            ## Recursion
+
+            Recursion is when the function calls itself.
+
+            ---
+            ## Recursion - Example
+
+            [Fibonacci number](https://en.wikipedia.org/wiki/Fibonacci_number) is the result of
+            adding the two preceeding numbers.
+
+            0, 1, 1, 2, 3, 5, 8, 13
+
+            ---
+            ## Recursion - Example
+            0, 1, 1, 2, 3, 5, 8, 13
+
+            - base case
+              - first number - 0
+              - second number - 1
+            - recurring case
+              - add the result of the previous two numbers
+
+            ---
+            ## Recursion - Fibonacci number
+
+            0, 1, 1, 2, 3, 5, 8, 13
+
+            ```javascript
+
+            function fibonacci(number) {
+              if (number == 1) {
+                // base case 1
+                return 0;
+              } else if (number == 2) {
+                // base case 2
+                return 1;
+              } else {
+                // recurring case
+                return fibonacci(number -1) + fibonacci(number - 2)
+              }
+            }
+
+            fibonacci(5); // 3
+
+            ```
+            ---
+            # Studio
+            [Link](https://education.launchcode.org/js-independent-track/chapters/more-on-functions/studio.html)
+            ---
+            ## Resources
+            - [Function - Net Ninja](https://www.youtube.com/watch?v=xUI5Tsl2JpY)
+            - [Function - Dev Ed](https://www.youtube.com/watch?v=xjAu2Y2nJ34)
+            - [Function - Mosh](https://www.youtube.com/watch?v=N8ap4k_1QEQ)
+            - [Function - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
+            - [Scope - MDN](https://developer.mozilla.org/en-US/docs/Glossary/Scope)
+            - [Scope - W3Schools] - (https://www.w3schools.com/js/js_scope.asp)
+          </textarea>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/zoom/zoom.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/search/search.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>
