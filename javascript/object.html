@@ -102,24 +102,10 @@
               transactions: []
             }
 
-            // variableName.propertyName
+            // objectName.propertyName
             bankAccount.balance
-            ```
 
-            ---
-            ## Object - Properties
-
-            Accessing properties with `[]`
-
-            ```javascript
-            const bankAccount =  {
-              // properties
-              name: 'Tina',
-              type: 'Checking',
-              balance: 200_000_000,
-              transactions: []
-            }
-
+            // objectName[propertyName]
             bankAccount['balance']
             ```
 
@@ -190,7 +176,7 @@
 
             ---
             ## Object - . vs []
-            - use . by default (opinion)
+            - use . by if it's your own object (opinion)
             - use [] when you don't know the key
             - use [] when there are spaces
 
@@ -198,7 +184,7 @@
             const bankAccount =  {
               // don't do this
               'first name': 'Tina',
-              '3': 'terrible data'
+              '3': 'three'
             }
 
             bankAccount['first name']
@@ -216,7 +202,7 @@
               balance: 200,
             }
 
-            // variableName.propertyName = new value
+            // objectName.propertyName = new value
             bankAccount.balance = 2_000_000;
             bankAccount['balance'] = 2_000_000;
             ```
@@ -235,7 +221,7 @@
               balance: 200,
             }
 
-            // variableName.propertyName = value
+            // objectName.propertyName = value
             bankAccount.transactions = [];
 
             console.log(bankAccount.transactions);
@@ -313,7 +299,8 @@
               false
             </p>
             <p class="fragment">
-              Anything that is a primitive data type<br>will compare by reference.
+              Object are compared by reference.<br>
+              Array is an object.
             </p>
             ---
             # Exercise
