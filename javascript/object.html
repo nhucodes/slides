@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Javascript - Object</title>
+
+		<meta name="description" content="">
+		<meta name="author" content="Nhu Nguyen">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/league.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="../css/override.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-markdown>
+          <textarea data-template>
+            ## Javascript
+            ### - Object
+
+            ---
+            ## Object
+
+            Object is a collection of
+            - data - properties
+            - functionality - methods
+
+
+            ---
+            ## Object - Create
+
+            Use `{}` to create an object
+            ```javascript
+            // an empty object with no properties or methods
+            const bankAccount = {}
+            ```
+            ---
+            ## Object - Create
+
+            ```javascript
+            const bankAccount =  {
+              // properties / data
+              // variableName : value
+              name: 'Tina',
+              type: 'Checking',
+              balance: 200,
+
+              // method / functionality
+              // methodName : function
+              withdraw: function(amount) {
+                this.balance = this.balance - amount;
+              }
+            }
+            ```
+
+
+            ---
+            ## Object - Properties
+            - key value pair
+            - name
+              - must be a valid string
+              - must be in quote if it has space
+            - value
+              - can be anything (number, string, array, object)
+
+            ```javascript
+            const bankAccount =  {
+              // properties
+              name: {firstName: 'Tina', lastName: 'Turner'},
+              type: 'Checking',
+              balance: 200_000_000,
+              transactions: []
+            }
+            ```
+
+            ---
+            ## Object - Properties
+
+            Accessing properties with `.`
+
+            ```javascript
+            const bankAccount =  {
+              // properties / data
+              name: 'Tina',
+              type: 'Checking',
+              balance: 200_000_000,
+              transactions: []
+            }
+
+            // variableName.propertyName
+            bankAccount.balance
+            ```
+
+            ---
+            ## Object - Properties
+
+            Accessing properties with `[]`
+
+            ```javascript
+            const bankAccount =  {
+              // properties
+              name: 'Tina',
+              type: 'Checking',
+              balance: 200_000_000,
+              transactions: []
+            }
+
+            bankAccount['balance']
+            ```
+
+            ---
+            ## Object - Properties
+
+            Accessing a property within a property
+
+            ```javascript
+            const bankAccount =  {
+              // properties / data
+              name: {firstName: 'Tina', lastName: 'Turner'},
+            }
+
+            bankAccount.name.firstName
+            bankAccount['name']['firstName']
+            ```
+
+            ---
+            ## Object - Properties
+
+
+            ```javascript
+            const bankAccount =  {
+              balance: 200_000_000
+            }
+
+            bankAccount[balance]
+            ```
+
+            What is it going to print?
+            <p class="fragment">
+              ReferenceError
+            </p>
+
+            ---
+            ## Object - Properties
+
+            ```javascript
+            const bankAccount =  {
+              balance: 200_000_000
+            }
+
+            bankAccount.fee
+            ```
+
+            What is it going to print?
+            <p class="fragment">
+              undefined
+            </p>
+
+            ---
+            ## Object - Properties
+
+            ```javascript
+            const bankAccount =  {
+              balance: 200_000_000
+            }
+
+            bankAccount['fee']
+            ```
+
+            What is it going to print?
+            <p class="fragment">
+              undefined
+            </p>
+
+
+            ---
+            ## Object - . vs []
+            - use . by default (opinion)
+            - use [] when you don't know the key
+            - use [] when there are spaces
+
+            ```javascript
+            const bankAccount =  {
+              // don't do this
+              'first name': 'Tina',
+              '3': 'terrible data'
+            }
+
+            bankAccount['first name']
+            bankAccount['3']
+            ```
+
+            ---
+            ## Object - update
+
+            ```javascript
+            const bankAccount =  {
+              // properties
+              name: 'Tina',
+              type: 'Checking',
+              balance: 200,
+            }
+
+            // variableName.propertyName = new value
+            bankAccount.balance = 2_000_000;
+            bankAccount['balance'] = 2_000_000;
+            ```
+
+
+            ---
+            ## Object - update
+
+            Add a new property
+
+            ```javascript
+            const bankAccount =  {
+              // properties
+              name: 'Tina',
+              type: 'Checking',
+              balance: 200,
+            }
+
+            // variableName.propertyName = value
+            bankAccount.transactions = [];
+
+            console.log(bankAccount.transactions);
+            ```
+            What is it going to print?
+            <p class="fragment">
+              []
+            </p>
+            ---
+            ## Object - this
+
+            What is `this`?
+
+            `this` refers to the current object
+
+            ```javascript
+            const bankAccount =  {
+              balance: 200,
+
+              withdraw: function(amount) {
+                // without this, it doesn't know the balance variable
+                this.balance = this.balance - amount;
+              }
+            }
+            ```
+
+
+            ---
+            ## Object
+            Iterating through the keys
+
+            ```javascript
+            const bankAccount =  {
+              name: 'Tina',
+              type: 'Checking',
+              balance: 200,
+            }
+
+            // define a variable (any name you want)
+            // in (keyword)
+            // object
+            for(const propertyName in bankAccount) {
+              console.log(propertyName + ' is ' + bankAccount[propertyName])
+            }
+
+            ```
+            ---
+            ## Object - Comparison
+            ```javascript
+            {} == {}
+            ```
+            What is it going to print?
+            <p class="fragment">
+              false
+            </p>
+
+            ---
+            ## Object - Comparison
+
+            `==` and `===` compares object by reference.
+
+            Cannot use `==` to compare object (except for String).
+
+            <img src="../img/object_comparison.png" alt="== asks if they have the same address" width=600px>
+
+
+            ---
+            ## Object - Comparison
+
+            ```javascript
+            [] == []
+            ```
+            What is it going to print?
+            <p class="fragment">
+              false
+            </p>
+            <p class="fragment">
+              Anything that is a primitive data type<br>will compare by reference.
+            </p>
+            ---
+            # Exercise
+            [Exercise](https://education.launchcode.org/js-independent-track/chapters/objects-and-math/exercises.html)
+            [Code](https://replit.com/@nhucodes/ObjectsExercises)
+
+            ---
+            # Studio
+            [Studio](https://education.launchcode.org/js-independent-track/chapters/objects-and-math/studio.html)
+            [Code](https://replit.com/@launchcode/ObjectsStudio01)
+            [Code 2](https://replit.com/@launchcode/ObjectsStudio02)
+
+            ---
+            ## Resources
+            - [MDN - Learn Object](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics)
+            - [MDN - Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+            - [Mosh Video](https://www.youtube.com/watch?v=PFmuCDHHpwk)
+          </textarea>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/zoom/zoom.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/search/search.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>
