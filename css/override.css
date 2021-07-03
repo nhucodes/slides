@@ -8,3 +8,8 @@
 .reveal code.hljs {
   background-color: #272822;
 }
+
+.small_text {
+  font-size: 13px;
+  margin: 0;
+}

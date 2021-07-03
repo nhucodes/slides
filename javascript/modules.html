@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Javascript - Object</title>
+
+		<meta name="description" content="">
+		<meta name="author" content="Nhu Nguyen">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/league.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="../css/override.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-markdown>
+          <textarea data-template>
+            ## Javascript
+            ### - Modules
+
+            ---
+            ## Modules - What
+
+            A collection of code
+            - variables
+            - functions
+            - classes
+            - usually map to one .js file
+
+            <br>
+            <img src="./../img/toolbox.jpeg" alt="tool box" width="400px">
+            <p class="small_text">Photo by <a href="https://unsplash.com/photos/h6xNSDlgciU">jesse orrico</a></p>
+
+            ---
+            ## Example
+
+            ```javascript
+            // string module
+            // string.js
+            const ORG_NAME = 'Launch Code'
+
+            function firstChar(value) {
+              return value[0];
+            }
+
+            module.exports = {
+              name: ORG_NAME,
+              firstChar: firstChar
+            }
+            ```
+            ---
+            ## Modules - Why
+
+            - organize
+            - reuse
+
+            ---
+            # Module
+            - Import/Export using CommonJS specification
+            - NOT using ES6 Module
+            ---
+            ## Modules - Export / Import
+
+            Export
+            ```javascript
+            // org.js
+            const ORG_NAME = 'Launch Code'
+
+            // assign module.exports with the thing you want to expose
+            // here we're only exporting the ORG_NAME
+            module.exports = ORG_NAME
+            ```
+
+            Import
+            ```javascript
+            // index.js
+            // import with require("location of the file")
+            // assign the import data to a variable
+            // usually call it by what they export
+            const ORG_NAME = require('./org.js');
+
+            console.log(ORG_NAME); // 'Launch Code'
+            ```
+
+            ---
+            ## Modules - Export / Import
+
+            Export
+            ```javascript
+            // number.js
+            function isEven(num){
+              return num % 2 === 0;
+            }
+
+            // assign module.exports with the function
+            module.exports = isEven
+            ```
+
+            Import
+            ```javascript
+            // require the file
+            // assign the import data to a variable
+            const isEven = require('./number.js');
+
+            // use the function
+            console.log(isEven(4))
+            ```
+            ---
+            ## Module - Library
+            readline-sync
+
+            ```javascript
+            const input = require('readline-sync');
+
+            let name = input.question("What is your name?");
+            console.log(`Hello, ${name}`);
+            ```
+
+            ---
+            ## Module - Export
+
+            Multiple exports
+
+            ```javascript
+            // number.js
+            function isEven(num){
+              return num % 2 === 0;
+            }
+
+            function isOdd(num){
+                return num % 2 === 1;
+            }
+
+            // assign exports to an object
+            module.exports = {
+              // name : function/variable
+              isEven: isEven,
+              isOdd: isOdd
+            }
+            ```
+
+            ---
+            ## Module - Export
+            Multiple exports - Alternative
+
+            ```javascript
+            // number.js
+            function isEven(num){
+              return num % 2 === 0;
+            }
+
+            function isOdd(num){
+              return num % 2 === 1;
+            }
+
+            // assume exports is an object {}
+            // add a new entry to exports
+            exports.isEven = isEven
+
+            // the word module is optional
+            module.exports.isOdd = isOdd
+            ```
+
+
+            ---
+            ## Module
+
+            Don't do this!
+
+            ```javascript
+            // need module. will not export otherwise
+            exports = {
+              // name : function/variable
+              isEven: isEven,
+              isOdd: isOdd
+            }
+            ```
+
+            ```javascript
+            // only isOdd (the last assignment) is exported
+            module.exports = isEven
+            module.exports = isOdd
+            ```
+
+            ---
+            ## Module - Import
+
+            ```javascript
+            // number.js
+            // functions code here
+            module.exports = {
+              isEven: isEven,
+              isOdd: isOdd
+            }
+            ```
+
+            Import
+            ```javascript
+            // index.js
+            // require the file
+            const number = require('./number.js');
+
+            // call the function from the exported object
+            console.log(number.isEven(5))
+            ```
+
+            ---
+            ## Module - Import
+
+            ```javascript
+            // number.js
+            // functions code here
+            module.exports = {
+              isEven: isEven,
+              isOdd: isOdd
+            }
+            ```
+
+            Import
+            ```javascript
+            // index.js
+            // require the file
+            const number = require('./number.js');
+
+            // call the function from the exported object
+            console.log(number.isEven(5))
+            ```
+
+            ---
+            ## Module - Import
+
+            ```javascript
+            // number.js
+            // functions code here
+            module.exports = {
+              isEven: isEven,
+              isOdd: isOdd
+            }
+            ```
+
+            Import with deconstruction
+            ```javascript
+            // index.js
+            // require the file
+            // we know it's an object
+            // Specify the name that matches the key of the object
+            const { isEven, isOdd } = require('./number.js');
+
+            // call the function from the exported object
+            console.log(isEven(5))
+            ```
+
+            ---
+            ## File path
+            - `./` - current directory/folder
+            - `../` or `./..` - parent directory/folder
+            - `/` absolute path (from the root)
+
+            ---
+            ## Module - Library
+            readline-sync
+
+            ```javascript
+            // readline-sync is a library, thus notice no .
+            const input = require('readline-sync');
+
+            let name = input.question("What is your name?");
+            console.log(`Hello, ${name}`);
+            ```
+
+            ---
+            ## Node.js
+            - an open-source, cross-platform, JavaScript runtime environment.
+            - executes JavaScript code outside of a browser
+            - comes with default modules
+
+            ---
+            ## Node.js - Dependencies
+
+            Node manages all the external modules inside `package.json`.
+
+            ```javascript
+            // package.json
+            {
+              "dependencies": {
+                // module name : version
+                 "readline-sync": "1.4.9"
+              }
+            }
+            ```
+
+            Imported external modules are called `dependencies`.
+
+            ---
+            ## NPM
+
+            Node Package Manager
+            - a registry of modules
+            - download libraries/packages
+            - upload your own to share
+            - command line tools to install modules
+
+            ---
+            ## Studio
+
+            - [Instructions](https://education.launchcode.org/js-independent-track/chapters/modules/studio.html)
+            - [Exercise](https://education.launchcode.org/js-independent-track/chapters/modules/exercises.html)
+            ---
+            ## Resources
+            - [freeCodeCamp - module](https://www.freecodecamp.org/news/javascript-modules-a-beginner-s-guide-783f7d7a5fcc/)
+            - [CommonJS](https://flaviocopes.com/commonjs/)
+            - [Destructuring Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#object_destructuring)
+
+          </textarea>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/zoom/zoom.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/search/search.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>
