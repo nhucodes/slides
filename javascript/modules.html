@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Javascript - Object</title>
+		<title>Javascript - Modules</title>
 
 		<meta name="description" content="">
 		<meta name="author" content="Nhu Nguyen">
@@ -36,7 +36,7 @@
             ---
             ## Modules - What
 
-            A collection of code
+            A collection of related code
             - variables
             - functions
             - classes
@@ -231,28 +231,6 @@
             }
             ```
 
-            Import
-            ```javascript
-            // index.js
-            // require the file
-            const number = require('./number.js');
-
-            // call the function from the exported object
-            console.log(number.isEven(5))
-            ```
-
-            ---
-            ## Module - Import
-
-            ```javascript
-            // number.js
-            // functions code here
-            module.exports = {
-              isEven: isEven,
-              isOdd: isOdd
-            }
-            ```
-
             Import with deconstruction
             ```javascript
             // index.js
@@ -304,7 +282,7 @@
             }
             ```
 
-            Imported external modules are called `dependencies`.
+            Imported external modules are called `dependencies` or `packages`.
 
             ---
             ## NPM
