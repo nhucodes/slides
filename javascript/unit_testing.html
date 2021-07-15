@@ -36,25 +36,148 @@
             ---
             ## Unit Testing - Test
 
-            Unit tests are code written to verify a small section of the code works as intended.
+            Unit tests are code written to verify <br>a small section of the code works as intended.
 
             ---
-            ## header
+            ## Unit Testing
+
+            What kind of test should we write?
 
             ```javascript
+            function minValue(numbers) {
+              let min = numbers[0];
+              for(let i = 1; i < numbers.length; i++) {
+                if (numbers[i] < min) {
+                  min = numbers[i];
+                }
+              }
 
+              return min;
+            }
             ```
             ---
+            ## Unit Testing
+
+            - null
+            - empty array
+            - array with one value
+            - min value is at the beginning
+            - min value is at the end
+            - min value in the middle
+            - min value is a negative number
+            - all the values are negative number
+
+            ---
+            ### Unit Testing - Why
+
+            - Verify the code works
+            - Regression
+            - Documentation
+            - Write better code (opinion)
+
+            ---
+            ## Unit Test - What to test
+
+            - What is your input?
+            - How many possible results are there?
+            - Positive tests
+            - Negative tests
+            - Edge cases
+
+            ---
+            ## Unit Test - Jasmine
+
+            A Javascript testing library
+
+            [Documentation](https://jasmine.github.io/)
+
+            ---
+            ## Unit Test - How
+
+            1. Required the file under test
+            2. Wrap your test suite in a `describe` block
+            3. Wrap your test in an `it` block
+
+            ```javascript
+            // 1. required file under test
+            const checkFive = require('../checkFive.js');
+
+            // 2. wrap the test suite in describe
+            // all the it code block goes inside describe
+            describe("checkFive", function(){
+
+              // 3. one test
+              it("description of the test", function(){
+                 //code here...
+              });
+            });
+            ```
+
+            ---
+            ## Unit Testing - Describe
+
+            `describe` has two parameters
+            - a string description of what the test case is
+              - function name
+            - an anonymous function
+
+            ```javascript
+            //checkFive is the function under test
+            describe("checkFive", function(){
+
+              //it blocks go here inside the anonymous functions
+
+            });
+            ```
+            ---
+            ## Unit Testing - it
+
+            `it` has two parameters
+            - a string description of what we're testing
+            - an anonymous function
+
+            ```javascript
+            //checkFive is the function under test
+            it("checks when the number is less than 5", function(){
+              // 1. set up your data
+              const number = 4;
+
+              // 2. invoke the function under test
+              const result = checkFive(number);
+
+              // 3. verify the result
+              expect(result).toEqual("4 is less than 5.");
+            });
+            ```
+
+            ---
+            ## TDD
+
+            Test Driven Development
+            1. Write a failing test
+            2. Write the code to make the test pass
+            3. Clean up the code
+
+            <img src="https://lh3.googleusercontent.com/proxy/dsLQhGQzu8s-pTkTTpBspqdYonKWlILxswHbP24aauAvi_jUMxhYoxopxw3B01lWHWhkvFvEVswqZQz3uw1LG7s" width=300px>
+            <p class="small_text">Image from <a href="http://lewandowski.io/2017/02/thre-levels-of-tdd-1/">Michał Lewandowski</a></p>
+
+
+            ---
+            ## Demo - Exercise
+
+            [Exercise](https://education.launchcode.org/js-independent-track/chapters/unit-testing/exercises.html#bonus-mission)
+            [Code](https://replit.com/@nhucodes/TDD#index.js)
+
+            ---
+
             ## Studio
 
             - [Instructions](https://education.launchcode.org/js-independent-track/chapters/modules/studio.html)
-            - [Exercise](https://education.launchcode.org/js-independent-track/chapters/modules/exercises.html)
+            - [Exercise](https://replit.com/@launchcode/UnitTestingStudio01Expectations)
             ---
             ## Resources
-            - [freeCodeCamp - module](https://www.freecodecamp.org/news/javascript-modules-a-beginner-s-guide-783f7d7a5fcc/)
-            - [CommonJS](https://flaviocopes.com/commonjs/)
-            - [Destructuring Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#object_destructuring)
-
+            - [Jasmine](https://jasmine.github.io/)
+            - [TDD - Wiki](https://en.wikipedia.org/wiki/Test-driven_development)
           </textarea>
 				</section>
 			</div>
