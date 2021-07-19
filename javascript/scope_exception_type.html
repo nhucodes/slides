@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Javascript - Scope & Type & Exception</title>
+
+		<meta name="description" content="">
+		<meta name="author" content="Nhu Nguyen">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/league.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="../css/override.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-markdown>
+          <textarea data-template>
+            ## Javascript
+            ### - Scope
+            ### - Types
+            ### - Exceptions
+
+            ---
+            ## Scope
+
+            ```
+            const a = 0;
+
+            function coolFunction() {
+               const b = 2;
+            }
+
+            console.log(a);
+            console.log(b);
+            ```
+
+            ---
+            ## Scope - Local
+
+            Local variable are variable only accessible within the function.
+
+            ```javascript
+            function square(number) {
+              // params number is locally scope
+              // total is declared inside the function
+              // therefore it is locally scope
+              const total = number * number;
+              return total
+            }
+            ```
+
+            ---
+            ## Scope - Block
+
+            Any Javascript code grouped together inside a curly braces is a code block (if, for, while, etc...)
+
+            ```javascript
+            if (true) {
+              // code block
+              // number is available only inside this code block
+              const number = Math.random * 100;
+            }
+            // number is not available outside {}
+
+            ```
+
+            ---
+            ## Scope - Block
+
+            ```javascript
+            for(let i = 0; i < 10; i++){
+              // code block
+              const number = Math.random * 100;
+            }
+            // i is not available outside {}
+            // number is not available outside {}
+
+            ```
+            ---
+            ## Scope - Global
+
+            ```javascript
+            // a is declared in the main file
+            // it is globally scoped
+            // avoid this if possible
+            const a = 0;
+
+            function coolFunction() {
+              // b is locally scoped
+               const b = 2;
+            }
+
+            console.log(a); // 0
+            console.log(b); // ReferenceError:
+            ```
+            ---
+            ## Scope - Global
+
+            Without `const`/`let`/`var`, <br>variables are global scope.
+            ```javascript
+            // a is declared in the main file
+            // it is globally scoped
+            const a = 0;
+
+            function coolFunction() {
+              // b is globally scoped
+              // DON'T DO THIS (if possible)
+              b = 2;
+            }
+
+            console.log(a); // 0
+            console.log(b);
+            ```
+
+            What is b?
+            <p class="fragment">
+              ReferenceError
+            </p>
+            ---
+            ## Scope - Global
+
+            ```javascript
+            // a is declared in the main file
+            // it is globally scoped
+            // avoid this if possible
+            const a = 0;
+
+            function coolFunction() {
+              // b is globally scoped
+              b = 2;
+            }
+            // have to call the function first
+            // to initialize the variable
+            coolFunction();
+
+            console.log(a); // 0
+            console.log(b); // 2
+            ```
+            ---
+            ## Execution Context
+            What code is executed?
+
+            ```javascript
+            let a = 0;
+
+            function updateA() {
+              console.log('Setting a to 10!');
+              a = 10;
+            }
+
+            if (a < 10) {
+              console.log('a is less than 10.');
+            }
+
+            console.log('a is ' + a);
+            ```
+            What is a?
+            <p class="fragment">
+              0
+            </p>
+
+            ---
+            ## Execution Context
+            Code executes top to bottom.
+
+            ```javascript
+            let a = 0;
+
+            // skip function until it is called
+            function updateA() {
+              console.log('Setting a to 10!');
+              a = 10;
+            }
+
+            if (a < 10) {
+              console.log('a is less than 10.');
+            }
+
+            console.log('a is ' + a);
+            ```
+
+            ---
+            ## Execution Context
+            Does not execute function unless functions are called.
+
+            ```javascript
+            let a = 0;
+
+            // skip this function until it is called
+            function updateA() {
+              console.log('Setting a to 10!');
+              a = 10;
+            }
+
+            // calls function to update A
+            updateA();
+            console.log('a is ' + a); // a is 10
+            ```
+
+            ---
+            ## Scope - Shadowing
+
+            When a local variable has <br>the same name as the outer variable.
+            ```javascript
+            let year = 2021;
+            let day = 'Sunday';
+
+            if (year === 2021) {
+              let day = 'Monday';
+              console.log(day); // Monday
+            }
+
+            console.log(day);
+            ```
+            What is day?
+            <p class="fragment">
+              Sunday
+            </p>
+
+            ---
+            ## Scope - Shadowing
+
+            When a local variable has <br>the same name as the outer variable.
+            ```javascript
+            let year = 2021;
+            let day = 'Sunday';
+
+            if (year === 2021) {
+              // this variable day is not the same
+              // as the one above.
+              let day = 'Monday';
+              console.log(day); // Monday
+            }
+
+            console.log(day); // Sunday
+            ```
+
+            ---
+            ## Scope - Shadowing
+
+            When a local variable has <br>the same name as the outer variable.
+            ```javascript
+            let year = 2021;
+            var day = 'Sunday';
+
+            if (year === 2021) {
+              // this variable day is not the same
+              // as the one above.
+              var day = 'Monday';
+              console.log(day); // Monday
+            }
+
+            console.log(day);
+            ```
+            What is day if use use `var`?
+            <p class="fragment">
+              Monday
+            </p>
+
+            ---
+            ## Scope - Shadowing
+
+            When a local variable has <br>the same name as the outer variable.
+            ```javascript
+            let year = 2021;
+
+            function updateYear(year) {
+              year = year + 1;
+            }
+
+            updateYear(year);
+            console.log(year);
+            ```
+            What is year?
+            <p class="fragment">
+              2021
+            </p>
+            ---
+            ## Scope - Shadowing
+
+            When a local variable has <br>the same name as the outer variable.
+            ```javascript
+            // global variable
+            let year = 2021;
+
+            function updateYear(year) {
+              // this year is local scope
+              // it is not the same as the global variable
+              year = year + 1;
+            }
+
+            updateYear(year);
+            // printing out global variable year
+            console.log(year);
+            ```
+            What is year?
+            <p class="fragment">
+              2021
+            </p>
+
+            ---
+            ## Scope - Shadowing
+
+            When a local variable has <br>the same name as the outer variable.
+            ```javascript
+            let year = 2021;
+
+            function updateYear(yearParam) {
+              // need to use a different param name
+              // in order to update global scope
+              year = yearParam + 1;
+            }
+
+            updateYear(year);
+            console.log(year);
+            ```
+            What is year?
+            <p class="fragment">
+              2022
+            </p>
+
+            ---
+            ## Scope
+
+            - Default to local scope
+            - Don't use global scope (if possible)
+            - Don't use var (if possible)
+
+            ---
+            ## Variable Hoisting
+
+            JavaScript moves all the variable declaration <br>to the top of the current scope.
+            ```javascript
+            x = 5;
+            var x;
+            console.log(x);
+            ```
+            Only works with `var`.
+            <br>Don't use `var`.
+            ---
+
+            # Types
+            - Undefined
+            - Null
+
+            ---
+            ## Types - Primitive
+
+            - String `'a'`, `"A"`
+            - Number `3`, `3.14`
+            - Boolean `true`, `false`
+            - undefined
+            - null
+
+            ---
+            ## Types - undefined
+
+            `undefined` is variable that has never been initialized.
+
+            ```javascript
+            let x; // never assigned it a value
+            console.log(x); //undefined
+            ```
+
+            ---
+            ## Types - undefined
+
+            <del>`undefined` is variable that has never been initialized.</del>
+            Can `initialize` it to `undefined`.
+
+            ```javascript
+            let x = undefined; // DON'T DO THIS!!!!!!!!
+            console.log(x); //undefined
+            ```
+            DON'T DO IT!
+            ---
+            ## Types - null
+
+            `null` means no value.
+
+            ```javascript
+            // set it to null if you don't have the value yet
+            let x = null;
+            x = input.question('Pick a number: ');
+            ```
+
+            You often see it in an object.
+            ```javascript
+            const student = {
+              name: "Cynthia",
+              grade: null
+            }
+            ```
+
+            ---
+            ## Types
+            `undefined` vs `null`
+            ```javascript
+
+            if (undefined == null) {
+              console.log('== is true');
+            }
+
+            if (undefined === null) {
+              console.log('=== is true');
+            }
+            ```
+            What will it print?
+            <p class="fragment">
+              == is true
+            </p>
+
+            ---
+
+            # Exceptions & Errors
+
+            ---
+            ## Exception/Error
+            An exception is a signal that something is wrong.
+
+            ```javascript
+            //ReferenceError - array is not defined
+            console.log(array.length);
+            ```
+
+            ---
+            ## Error
+            - name (TypeError)
+            - message (`"Cannot read property 'name' of undefined"`)
+            - stack (list files where the error occurred)
+
+            ---
+            ## Common Errors
+            - SyntaxError - bad syntax
+              ```javascript
+              console.log("This is" an example);
+              ```
+
+            - ReferenceError - using an undefined variable
+              ```javascript
+                console.log(array.length);
+              ```
+
+            - TypeError - when a value is not of the expected type
+              ```javascript
+              const x = null;
+              x.length // null does not have length
+              ```
+            ---
+            ## Throw/Raise an exception
+
+            The system will throw/raise an exception when it cannot proceed.
+
+            ```javascript
+            const input = require('readline-sync');
+
+            const number = input.question('Enter a number: ');
+
+            if (isNaN(number)) {
+              // cannot proceed, throws an error
+              // throw Error('string message')
+              throw Error(number + ' is not a number.');
+            }
+            ```
+
+            ---
+            ## Catch an exception
+
+            Wraps the code in a `try {} catch {}` code block.
+            ```javascript
+            try {
+              // code that can cause an error
+            } catch(err) {
+              // what to do if an error occurs
+            }
+
+            ```
+
+            ---
+            ## Catch an exception
+
+            Wraps the code in a `try {} catch {}` code block.
+
+            ```javascript
+            const input = require('readline-sync');
+
+            let animals = [{name: 'cat'}, {name: 'dog'}];
+            let index = Number(input.question("Enter index of animal:"));
+
+            try {
+              console.log('animal at index:', animals[index].name);
+            } catch(err) {
+              console.log(err.message);
+            }
+
+            console.log("Index is " + index);
+            ```
+
+
+            ---
+            ## Catch an exception
+
+            Wraps the code in a `try {} catch {}` code block.
+
+            ```javascript
+            const input = require('readline-sync');
+
+            let animals = [{name: 'cat'}, {name: 'dog'}];
+            let index = Number(input.question("Enter index of animal:"));
+
+            try {
+              console.log('animal at index:', animals[index].name);
+            } catch(err) {
+              console.log(err.message);
+            } finally {
+              console.log('execute this no matter what.')
+            }
+
+            console.log("Index is " + index);
+            ```
+
+            ---
+
+            ## Studio
+
+            - [Studio](https://education.launchcode.org/js-independent-track/chapters/exceptions/studio.html)
+          </textarea>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/zoom/zoom.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/search/search.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>
