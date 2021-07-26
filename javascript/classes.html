@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Javascript - Classes</title>
+
+		<meta name="description" content="">
+		<meta name="author" content="Nhu Nguyen">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/league.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="../css/override.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-markdown>
+          <textarea data-template>
+            ## Javascript
+            ### - Classes
+
+            ---
+            [Demo](https://replit.com/@nhucodes/JSClasses#index.js)
+            ---
+            ## Class
+
+            A class is a template/definition of an object.
+
+            ---
+            ## Class
+            Declaring a class
+            ```javascript
+            // keyword class
+            // name of the class (capitalize)
+            class Student {
+
+              // class body
+
+            }
+            ```
+
+            ---
+            ## Class - Constructor
+
+            ```javascript
+            class Student {
+              //keyword constructor
+              // works like a function
+              // call it with "new ClassName()"
+              constructor() {
+                //set your properties here
+                this.name = '';
+                this.grades = [];
+              }
+            }
+
+            // calls the constructor function
+            const alvin = new Student();
+            console.log(alvin.name); // ''
+            console.log(alvin.grades); // []
+            ```
+
+
+            ---
+            ## Class
+
+            No constructor
+            ```javascript
+            class Student {
+              // set properties/fields
+              name = '';
+              grades = [];
+            }
+
+            // will call the constructor function
+            const alvin = new Student();
+
+            console.log(alvin.name); // ''
+            console.log(alvin.grades); // []
+            ```
+
+            ---
+            ## Class
+
+            Empty constructor
+            ```javascript
+            class Student {
+              // set properties
+              name = '';
+              grades = [];
+
+              constructor() {}
+            }
+
+            // will call the constructor function
+            const alvin = new Student();
+
+            console.log(alvin.name); // ''
+            console.log(alvin.grades); // []
+            ```
+            ---
+            ## Class
+
+            Constructor with params
+            ```javascript
+            class Student {
+              constructor(name, grades) {
+                //setup
+                this.name = name; // set the name to the one passed in
+                this.grades = grades; // set the grade to the one passed in
+              }
+            }
+
+            // will call the constructor function
+            // set the name and grades
+            const alvin = new Student('Alvin', [87, 71]);
+            console.log(alvin.name); // 'Alvin'
+            console.log(alvin.grades); // [87, 71]
+            ```
+            ---
+
+            ## Class
+
+            Set default params
+
+            ```javascript
+            class Student {
+              constructor(name, grades = []) {
+                //setup
+                this.name = name; // set the name to the one passed in
+                this.grades = grades; // set the grade to the one passed in
+              }
+            }
+
+            // will call the constructor function
+            // set the name
+            const alvin = new Student('Alvin');
+            console.log(alvin.name); // 'Alvin'
+            console.log(alvin.grades); // []
+            ```
+
+            ---
+            ## Class
+
+            Add a method
+            ```javascript
+            class Student {
+              constructor(name, grades = []) {
+                this.name = name;
+                this.grades = grades;
+              }
+
+              // methodName(optional params)
+              addGrade(grade){
+                this.grades.push(grade);
+              }
+
+              displayGrades(){
+                console.log(this.grades);
+              }
+            }
+
+            ```
+
+            ---
+            ## Class
+
+            Call methods
+            ```javascript
+            class Student {
+              constructor(name, grades = []) {
+                this.name = name;
+                this.grades = grades;
+              }
+
+              // methodName(optional params)
+              addGrade(grade){
+                this.grades.push(grade);
+              }
+
+              displayGrades(){
+                console.log(this.grades);
+              }
+            }
+
+            ```
+
+            ```javascript
+            const alvin = new Student('Alvin');
+            alvin.addGrade(70);
+            alvin.displayGrades();
+            ```
+
+
+            ---
+            ## Class
+
+            What is `this`?
+            `this` is the current object
+
+            ```javascript
+            class Student {
+              constructor(name, grades = []) {
+                this.name = name;
+                this.grades = grades;
+              }
+
+              addGrade(grade){
+                this.grades.push(grade);
+                this.dipslayGrades(); // calls the object method
+              }
+
+              displayGrades(){
+                console.log(this.grades);
+              }
+            }
+            ```
+
+            [Demo](https://replit.com/@nhucodes/ThisDemo#index.js)
+            ---
+
+            ## Inheritance
+
+            ```javascript
+            class Student {
+              constructor(name, email, grades) {
+                this.name = name;
+                this.email = email;
+                this.grades = grades;
+              }
+            }
+
+            ```
+
+            ```javascript
+            class Teacher {
+              constructor(name, email, students) {
+                this.name = name;
+                this.email = email;
+                this.students = students;
+              }
+            }
+            ```
+
+            Can we extract a shared class?
+
+            ---
+
+            ## Inheritance
+
+            ```javascript
+            // parent class
+            class User {
+              constructor(name, email) {
+                this.name = name;
+                this.email = email;
+              }
+            }
+            ```
+
+            ```javascript
+            // child class needs to "extends" parent class
+            class Student extends User {
+              constructor(name, email, grades) {
+                super(name, email); // calls User constructor
+                this.grades = grades;
+              }
+            }
+
+            class Teacher extends User {
+              constructor(name, email, students) {
+                super(name, email); // calls User constructor
+                this.students = students;
+              }
+            }
+            ```
+
+            ---
+
+            ## Studio
+
+            - [Instructions](https://education.launchcode.org/js-independent-track/chapters/classes/studio.html)
+            - [Studio](https://replit.com/@launchcode/UnitTestingStudio01Expectations)
+            ---
+            ## Resources
+            - [Class - JavascriptInfo](https://javascript.info/class)
+          </textarea>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/zoom/zoom.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/search/search.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>
