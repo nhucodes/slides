@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Javascript - DOM & Events</title>
+
+		<meta name="description" content="">
+		<meta name="author" content="Nhu Nguyen">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/league.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="../css/override.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-markdown>
+          <textarea data-template>
+            # JavaScript
+            ### - DOM
+            ### - Events
+
+            ---
+            ## JavaScript
+            Used by 97.5% of all the websites in the world
+
+            ---
+            ## JavaScript
+            - User interaction (hide/show content)
+            - Load background data (infinite scrolling 😓)
+            - Validate user inputs
+
+            ---
+            ## JavaScript
+
+            ```
+            <!DOCTYPE html>
+            <html>
+            <head>
+              <title>Embedded JavaScript Example</title>
+            </head>
+            <body>
+              <!-- content -->
+              <script type="application/javascript">
+                // JavaScript code goes here!
+                console.log("Hello from inside the web page!");
+              </script>
+            </body>
+            </html>
+            ```
+
+            ---
+            ## JavaScript
+
+            Add JavaScript file
+
+            ```javascript
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>External JavaScript Example</title>
+            </head>
+            <body>
+                <!-- content -->
+                <script src = "my_javascript_file.js"></script>
+            </body>
+            </html>
+            ```
+
+
+            ---
+            ## DOM
+
+            The DOM is object-oriental representation <br>of the web page or XML document.
+
+            ```html
+            <html>
+              <head>
+                <title>My Page</title>
+              </head>
+              <body>
+                <!-- Page Body -->
+                <h2>My Page</h2>
+                <p id="content">Thank you for visiting my web page!</p>
+              </body>
+            </html>
+            ```
+
+            <p class="small_text">Content by <a href="https://dmitripavlutin.com/dom-node-element/">Dmitri Pavlutin</a></p>
+
+            ---
+            ## DOM
+            The DOM is object-oriental representation <br>of the web page or XML document.
+
+            <img src="./../img/dom_nodes.webp" width="400">
+            <p class="small_text">Content by <a href="https://dmitripavlutin.com/dom-node-element/">Dmitri Pavlutin</a></p>
+
+            ---
+            ## DOM
+            Global DOM Variables
+            - [window](https://developer.mozilla.org/en-US/docs/Web/API/Window) - the window containing the DOM
+            - [document](https://developer.mozilla.org/en-US/docs/Web/API/Document) - the DOM tree
+
+            ---
+            ## Window
+            - methods on window do not need `window`
+              - `window.alert` can be written as `alert('hey')`
+            - common functions
+              - `alert`
+              - `console.log`
+              - `location`
+            ---
+            ## DOM
+
+            `document` is a a global variable of Document instance.
+
+            - Node - Every DOM object is a node (text, element)
+            - Element - Specific type of node (HTMLElement)
+
+            ---
+            ## Element
+
+            Element is a node with a tag (e.g. p, h1, div)
+
+            ```
+            <html>
+              <head>
+                <title>My Homepage</title>
+              </head>
+              <body>
+                Text alone is not an element.
+                <!-- Comment are not element -->
+                <h1>Hello!</h1>
+                <p>My name is....</p>
+              </body>
+            </html>
+            ```
+            ---
+            ## DOM
+
+            Interact with the webpage by using these common methods:
+
+            - document.getElementById
+            - document.querySelector
+            - document.querySelectorAll
+            - document.document.getElementsByClassName
+
+            ---
+            ## DOM
+            `querySelector`
+            - `document.querySelectorAll('p')`
+              - get all `p` element`
+            - `document.querySelectorAll('.link')`
+              - get all element with the class `link`
+            - `document.querySelector('#title')`
+              - get the element with the id `title`
+
+            ---
+            ## Element
+
+            Update an element
+            ```javascript
+            const title = document.querySelector('#title');
+            title.innerText = "Hello";
+            title.style.background = "#FAF"
+            ```
+
+            ---
+            # DEMO
+            - Select by id
+              - update the content
+            - Select by tag
+            - Select by class
+
+            ---
+            ## Events
+
+            An event is an action trigger by the user.
+              - page load
+              - mouse click
+              - user input
+
+            ---
+            ## Event Handler/Listener
+
+            Code to execute when an event occurred/triggered.
+
+            Inline:
+            ```html
+              <button onclick="confirm('Are you sure?')">Delete</button>
+            ```
+
+            With a custom function:
+            ```html
+              <button onclick="verifyDeletion()">Delete</button>
+
+              <script>
+                function verifyDeletion() {
+                  confirm('Are you sure you want to delete item?');
+                }
+              </script>
+            ```
+
+            ---
+            ## Event Handler/Listener
+
+            Code to execute when an event occurred/triggered.
+
+            Adding an [event listener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
+              - `element.addEventListener(eventName, function)`
+
+            ```html
+              <button>Delete</button>
+
+              <script>
+                const button = document.querySelector('button');
+                button.addEventListener('click', function() {
+                  confirm('Are you sure you want to delete item?');
+                })
+              </script>
+            ```
+
+            ---
+            ## Event Bubbling
+
+            Parent's event handler is trigger when a child is clicked.
+
+            ```html
+            <div id="header">
+              <h1 id="title">Welcome to my website!</h1>
+            </div>
+
+            <script>
+              document.getElementById('title').addEventListener('click',
+              function(event) {
+                console.log("click on the title");
+                event.stopPropagation();
+              });
+              document.getElementById('header').addEventListener('click',
+              function(event) {
+                console.log("click on the header");
+              });
+            </script>
+            ```
+            Stop propagation with `event.stopPropagation();`
+
+            ---
+            ## Event Type
+
+            - `load`
+              - when the element/document load
+            - `change`
+              - when the element is updated (input, dropdown)
+            - `mouseover`, `mouseout`
+              - when the cursor hover over/leave the element
+            - `keyup`, `keydown`, `keypress`
+
+            ---
+            ## Event
+
+            - `event.preventDefault()`
+              - don't execute default behavior
+            - window.load
+              - wait for window load
+            ```html
+            <script>
+              window.onload = function() {
+                # execute your code here
+              };
+            </script>
+            ```
+            ---
+
+            # Exercise
+            - [Instructions](https://education.launchcode.org/js-independent-track/chapters/dom-and-events/exercises.html)
+            - [Code](https://replit.com/@nhucodes/Exercises-DOM-and-Events#index.html)
+            ---
+
+            # Studio
+
+            - [Instructions](https://education.launchcode.org/js-independent-track/chapters/dom-and-events/studio.html)
+            - [Studio](https://replit.com/@launchcode/UnitTestingStudio01Expectations)
+            ---
+            ## Resources
+
+            - [Where to put the script file?](https://stackoverflow.com/questions/436411/where-should-i-put-script-tags-in-html-markup)
+            - [Node vs Element](https://dmitripavlutin.com/dom-node-element/)
+            - [Event](https://developer.mozilla.org/en-US/docs/Web/API/Event)
+          </textarea>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/zoom/zoom.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/search/search.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>
