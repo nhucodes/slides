@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Javascript - API</title>
+
+		<meta name="description" content="">
+		<meta name="author" content="Nhu Nguyen">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/league.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="../css/override.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-markdown>
+          <textarea data-template>
+            ## Javascript
+            ### - API
+            ### - JSON
+            ### - Promise
+
+            ---
+            ## API Calls
+
+            <img src="./../img/api.png" width="850px">
+
+            ---
+            ## API
+
+            Application Programming Interface
+            <p class="fragment">
+              It's a specification on how to interact with to the application.
+            </p>
+
+            ---
+            ## JSON
+
+            A text format that consist of key/value pairs and arrays.
+
+            ```javascript
+            // key value pairs
+            {
+              "first_name": "Alvin",
+              "last_name": "Seville"
+            }
+            ```
+
+            ```javascript
+            // array
+            [
+              {
+                "first_name": "Alvin",
+                "last_name": "Seville"
+              },
+              {
+                "first_name": "Simon",
+                "last_name": "Seville"
+              }
+
+            ]
+            ```
+
+            ---
+            ## Promise
+            A JS promise is an object that represent an operation that hasn't completed yet.
+
+            ```javascript
+              const url = "https://handlers.education.launchcode.org/static/weather.json";
+              const weatherCall = fetch(url); // promise
+            ```
+
+            ---
+            ## Promise
+
+            Use `.then(function)` to process the result.
+
+            The `function` is called when
+            <br>the promise/task is complete.
+            ```javascript
+            const url = "https://handlers.education.launchcode.org/static/weather.json";
+            const weatherCall = fetch(url); // promise
+
+            weatherCall.then(function(result) {
+              console.log(result); // result is a type response
+              const dataPromise = result.json(); // another promise to get the data
+              dataPromise.then((data) => {
+                console.log(data);
+              });
+            })
+            ```
+
+            ---
+            ## Promise
+
+            Use `.then(function)` to process the result.
+
+            The `function` is called when
+            <br>the promise/task is complete.
+            ```javascript
+            const url = "https://handlers.education.launchcode.org/static/weather.json";
+            fetch(url) // fetch the data
+              .then((response) => response.json()) // get the json
+              .then((data) => console.log(data)); // print out the data
+            ```
+
+            ---
+            ## Exercise
+
+            - [Instructions](https://education.launchcode.org/js-independent-track/chapters/fetch-json/exercises.html)
+
+            ---
+
+            ## Studio
+
+            - [Studio](https://education.launchcode.org/js-independent-track/chapters/fetch-json/studio.html)
+          </textarea>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/zoom/zoom.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/search/search.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>
