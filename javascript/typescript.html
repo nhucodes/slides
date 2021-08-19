@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Javascript - TypeScript</title>
+
+		<meta name="description" content="">
+		<meta name="author" content="Nhu Nguyen">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/league.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="../css/override.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-markdown>
+          <textarea data-template>
+            ## JavaScript
+            ### - TypeScript
+
+            ---
+            ## JavaScript
+
+            ```javascript
+            function combine(value1, value2) {
+              return value1 + value2;
+            }
+            ```
+
+            What is value1 and value2?
+
+            <p class="fragment">
+              Who knows! ¯\_(ツ)_/¯
+            </p>
+
+            ---
+            ## Dynamically typed language
+
+            Variable types are determined at runtime.
+
+            ```javascript
+            function combine(value1, value2) {
+              return value1 + value2;
+            }
+            ```
+            ---
+            ## Dynamically typed language
+
+            JavaScript is a dynamically typed language.
+
+            ```javascript
+            let x = 10; // x is a number
+
+            x = 'hello!'; // x is now a string
+            ```
+
+            ---
+            ## Statically typed language
+
+            Variable types are determined at compiled time.
+
+            ```typescript
+            let x: number = 10; // x is a number
+
+            x = 'hello!'; // error
+            ```
+            ---
+            ## Why
+
+            - Catch bug earlier
+            - Easier to read
+            - Debug
+            - Enforce data type
+
+            ---
+            ## Statically typed language
+
+            TypeScript adds optional static typing to JavaScript.
+
+            ```typescript
+            // variableName: type = value
+            const name: string = 'Alvin';
+            const year: number = 2021;
+            const isMonday: boolean = false;
+
+            const luckyNumbers: number[] = [1, 6, 7, 13];
+            const names: string[] = ['Alvin', 'Simon', 'Theodore'];
+            ```
+
+            ---
+            ## Statically typed language
+
+            Don't need to declare the type for a variable with value
+            ```typescript
+            // compiler can infer the type
+            const name = 'Alvin';
+            const year = 2021;
+            const isMonday = false;
+            ```
+            ---
+
+            ## TypeScript - function
+
+            ```typescript
+            // function functionName(param: paramType): returnType {}
+            function square(value: number): number {
+              return value * value;
+            }
+            ```
+
+            ---
+            ## TypeScript - function
+
+            Function with no return type
+            ```typescript
+            // function functionName(param: paramType): void {}
+            function print(value: string): void {
+              console.log(value);
+            }
+            ```
+
+            ---
+            ## TypeScript - function
+
+            Accepts two types
+
+            ```typescript
+            // value can be string or number
+            function print(value: string | number): void {
+              console.log(value);
+            }
+            ```
+            ---
+            ## TypeScript - function
+
+            `any` type
+            ```typescript
+            // value can be any type
+            // useless at this point
+            function print(value: any): void {
+              console.log(value);
+            }
+            ```
+            ---
+            # DEMO
+
+            ---
+            ## Class
+            TypeScript
+
+            ```typescript
+            class Astronaut {
+              //fieldName : type;
+              lastName: string;
+
+              //fieldName: type = default value
+              firstName: string = '';
+            }
+
+            ```
+
+            JavaScript
+
+            ```typescript
+            class Astronaut {
+              constructor() {
+                this.lastName;
+                this.firstName = '';
+              }
+            }
+
+            ```
+            ---
+            ## Interface
+
+            Define a type with properties
+
+            ```typescript
+            // A User must have the following fields
+            interface User {
+              firstName: string; // required
+              lastName: string; // required
+              middleName?: string; // optional
+            }
+
+            ```
+
+            ---
+            ## Interface
+
+            Interface
+            ```typescript
+            interface User {
+              firstName: string; // required
+              lastName: string; // required
+              middleName?: string; // optional
+            }
+            ```
+
+            A class can `implements` an interface
+            ```typescript
+            class Astronaut implements User {
+              firstName: string = '';
+              lastName: string = '';
+              middleName?: string = '';
+
+              constructor(firstName: string, lastName: string) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+              }
+            }
+            ```
+
+            ---
+            ## Import/Export
+
+            Export
+
+            ```typescript
+            export default function helloWorld() {
+              console.log("Hello, world!");
+            }
+            ```
+
+            Import
+
+            ```typescript
+            import hello from "./hello.js";
+            hello();
+            ```
+            ---
+            ## Import/Export
+
+            Export
+
+            ```typescript
+            export const pi = 3.14;
+            ```
+
+            Import
+
+            ```typescript
+            import { pi } from "./maths.js";
+
+            console.log(pi);
+            ```
+
+            ---
+            ## Import/Export
+
+            Export
+
+            ```typescript
+            export const pi = 3.14;
+            export const phi = 1.61;
+            ```
+
+            Import
+
+            ```typescript
+            // import everything
+            import * as Math from "./maths.js";
+
+            console.log(Math.phi);
+            console.log(Math.pi);
+            ```
+
+            ---
+            ## Exercise
+
+            - [Exercise](https://education.launchcode.org/js-independent-track/chapters/typescript/exercises.html)
+
+            ---
+
+            ## Studio
+
+            - [Studio](https://education.launchcode.org/js-independent-track/chapters/typescript/studio.html)
+
+            ---
+            ## Resources
+            - [Interface](https://www.typescriptlang.org/docs/handbook/2/objects.html)
+            - [Import/Export](https://www.typescriptlang.org/docs/handbook/2/modules.html)
+
+          </textarea>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/zoom/zoom.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/search/search.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>
