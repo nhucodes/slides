@@ -43,37 +43,44 @@
             <p class="fragment">A variable is a named value.</p>
 
             ```javascript
-              const pi = 3.14;
-              const day = "Monday";
+            const day = "Monday";
+            const year = 2022;
             ```
 
             ---
             ## Why do we use a variable?
 
-            <p class="fragment">To update a value</p>
+            What is 3.14?
 
             ```javascript
-            // If we want to change the value
-            // we only need to change it in one place
-            const x = 3;
-            const square = x * x;
-
-            const cube = x * x * x;
-            const cube2 = square * x;
+            const circumference = 2 * 3.14 * 15;
+            const area = 3.14 * (15 * 15);
             ```
+
+            <p class="fragment">To reuse and update a value</p>
 
             ---
             ## Why do we use a variable?
 
-            - To reuse code
+            - To update or reuse a value
 
             ```javascript
-            const day = 'Saturday';
+            const pi = 3.14;
+            const radius = 15
 
-            console.log('Today is ' + day); // Today is Saturday
-            console.log(day + ' is the best!'); // Saturday is the best!
-            console.log('I love ' + day); // I love Saturday
+            const circumference = 2 * pi * radius;
+            const area = pi * (radius * radius);
             ```
+            ---
+            ## Why do we use a variable?
+
+            - we don't know the value
+
+            ```javascript
+            // we don't know what name the user is going to give us
+            const userFirstName = getUserFirstName();
+            ```
+
             ---
             ## Declaring a variable
 
@@ -124,19 +131,21 @@
             color = "green"
 
             //declare and initialize the variable
+            // this is the referred way
             let number = 9;
             ```
 
             ---
             Remember, the `=` sign means to assign.
 
-            It does not mean `equal`.
+            It is not a comparison `equal`.
 
             ```javascript
             // let city be "Philly"
             let city = "Philly";
 
-            let month = 6;
+            // use == for comparison
+            city == "Philly"
             ```
 
             ---
